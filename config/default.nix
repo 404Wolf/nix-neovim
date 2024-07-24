@@ -2,7 +2,7 @@
   imports = [
     ./plugins
     ./keys.nix
-    ./lsps.nix
+    ./lsps
   ];
   colorscheme = "onedark_dark";
   extraPackages = [
@@ -16,6 +16,7 @@
     pkgs.isort
     pkgs.luarocks-nix
     pkgs.luajitPackages.lua-lsp
+    # pkgs.basedpyright
   ];
   opts = let
     tab_amount = 2;
@@ -35,6 +36,7 @@
   extraConfigLua =
     # lua
     ''
+      vim.opt.list = true
       vim.opt.listchars:append("space:⋅")
     '';
 }

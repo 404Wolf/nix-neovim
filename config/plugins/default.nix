@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./nix/indent-blankline.nix
+    ./nix/nix-develop.nix
     ./nix/telescope.nix
     ./nix/coq.nix
     ./nix/chadtree.nix
@@ -12,10 +13,13 @@
     ./nix/auto-save.nix
     ./nix/gitsigns.nix
     ./nix/copilot-lua.nix
+    ./nix/comment.nix
     ./nix/dap.nix
     ./nix/fugitive.nix
     ./nix/dressing.nix
     ./nix/gitconflict.nix
+    ./nix/ts-autotag.nix
+    ./nix/marks.nix
   ];
   luaLoader.enable = true;
   plugins = {
@@ -25,18 +29,34 @@
       theme = "dashboard";
       iconsEnabled = true;
     };
-    oil = {
-      enable = true;
-    };
-    ts-autotag = {
-      enable = true;
-    };
   };
   extraPlugins = [
     pkgs.vimPlugins.onedarkpro-nvim
     pkgs.vimPlugins.actions-preview-nvim
     pkgs.vimPlugins.lualine-nvim
     pkgs.vimPlugins.aerial-nvim
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "nvim-lspimport";
+      version = "2024-07-23";
+      src = pkgs.fetchFromGitHub {
+        owner = "stevanmilic";
+        repo = "nvim-lspimport";
+        rev = "4fef458b8853b1b90b55054ed6c3f98fff094cd1";
+        sha256 = "sha256-JIbd4ygOGuNsg6fZnlN9iz7hfN4LQWM6VSJy4Qh9LJg=";
+        meta.homepage = "https://github.com/stevanmilic/nvim-lspimport";
+      };
+    })
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "copilot-status";
+      version = "2024-07-23";
+      src = pkgs.fetchFromGitHub {
+        owner = "jonahgoldwastaken";
+        repo = "copilot-status.nvim";
+        rev = "decbffa57732f3d257641aea1d5541dd4fe536f6";
+        sha256 = "sha256-jJqbMuTjTN2n7s2iXAoxJDKiRCFkBdpJEHap5KphKbM=";
+        meta.homepage = "https://github.com/jonahgoldwastaken/copilot-status.nvim";
+      };
+    })
     (pkgs.vimUtils.buildVimPlugin {
       pname = "nvim-lsp-file-operations";
       version = "2024-07-23";
@@ -57,22 +77,29 @@
     ])
     +
     #lua
-    ''vim.cmd(":AerialOpen")''
+    ''
+      -- vim.cmd(":AerialOpen")
+      -- vim.api.nvim_create_autocmd("VimEnter", {
+      --   pattern = "*",
+      --   command = "CHADopen"
+      -- })
+    ''
   );
   extraConfigLua =
     # lua
     ''
-      -- Function to close the initial unnamed buffer
-      local function close_initial_buffer()
-          if #vim.fn.getbufinfo({ buflisted = 1 }) > 1 then
-              vim.cmd('silent! bd! 1')
-          end
-      end
-
-      -- Autocommand to trigger the function on BufEnter
-      vim.api.nvim_create_autocmd("BufEnter", {
-          pattern = "*",
-          callback = close_initial_buffer
-      })
+      -- -- Function to close the initial unnamed buffer
+      -- local function auto_open_alpha()
+      --   if #vim.fn.getbufinfo({ buflisted = 1 }) == 0 then
+      --     vim.cmd('silent! bd! 1')
+      --     vim.cmd('Alpha')
+      --   end
+      -- end
+      --
+      -- -- Autocommand to trigger the function on BufEnter
+      -- vim.api.nvim_create_autocmd("BufDelete", {
+      --   pattern = "*",
+      --   callback = auto_open_alpha
+      -- })
     '';
 }

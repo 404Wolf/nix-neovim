@@ -16,40 +16,40 @@
 
     {
       mode = "n";
-      key = "<C-j>";
-      action = "<C-w>j";
+      key = "<c-j>";
+      action = "<c-w>j";
       options = { };
     }
 
     {
       mode = "n";
-      key = "<C-k>";
-      action = "<C-w>k";
+      key = "<c-k>";
+      action = "<c-w>k";
       options = { };
     }
 
     {
       mode = "n";
-      key = "<C-h>";
-      action = "<C-w>h";
+      key = "<c-h>";
+      action = "<c-w>h";
       options = { };
     }
 
     {
       mode = "n";
-      key = "<C-l>";
-      action = "<C-w>l";
+      key = "<c-l>";
+      action = "<c-w>l";
       options = { };
     }
 
-    # Stay selected after indent
+    # stay selected after indent
     {
       mode = "v";
       key = "<";
       action = "<gv";
       options = {
         noremap = true;
-        desc = "Stay selected after indent left";
+        desc = "stay selected after indent left";
       };
     }
 
@@ -59,55 +59,55 @@
       action = ">gv";
       options = {
         noremap = true;
-        desc = "Stay selected after indent right";
+        desc = "stay selected after indent right";
       };
     }
 
-    # Select all
+    # select all
     {
       mode = "n";
       key = "<leader>aa";
-      action = "ggVG";
+      action = "ggvg";
       options = {
-        desc = "Select all text";
+        desc = "select all text";
       };
     }
 
-    # Folding
+    # folding
     {
       mode = "n";
       key = "zt";
       action = "za";
-      options = {desc = "Toggle fold at cursor";};
+      options = {desc = "toggle fold at cursor";};
     }
 
     {
       mode = "n";
       key = "zc";
-      action = ":lua vim.wo.foldlevel = vim.wo.foldlevel - 1<CR>";
-      options = {desc = "Close fold at cursor";};
+      action = ":lua vim.wo.foldlevel = vim.wo.foldlevel - 1<cr>";
+      options = {desc = "close fold at cursor";};
     }
 
     {
       mode = "n";
       key = "zo";
-      action = ":lua vim.wo.foldlevel = vim.wo.foldlevel + 1<CR>";
-      options = {desc = "Open fold at cursor";};
+      action = ":lua vim.wo.foldlevel = vim.wo.foldlevel + 1<cr>";
+      options = {desc = "open fold at cursor";};
     }
 
-    # Window sizing
+    # window sizing
     {
       mode = "n";
-      key = "<C-m>";
-      action = ":only<CR>";
-      options = {desc = "Maximize current window";};
+      key = "<c-m>";
+      action = ":only<cr>";
+      options = {desc = "maximize current window";};
     }
 
     {
       mode = "n";
-      key = "<C-;>";
-      action = ":.s/$/;/<CR>";
-      options = {desc = "Add semicolon at end of line";};
+      key = "<c-;>";
+      action = ":.s/$/;/<cr>";
+      options = {desc = "add semicolon at end of line";};
     }
 
     {
@@ -117,36 +117,36 @@
       options = {
         noremap = true;
         silent = false;
-        desc = "Quick command access";
+        desc = "quick command access";
       };
     }
 
     {
       mode = "n";
-      key = "<C-q>";
-      action = ":wqa!<CR>";
+      key = "<c-q>";
+      action = ":wqa!<cr>";
       options = {
         noremap = true;
         silent = false;
-        desc = "Save all and exit";
+        desc = "save all and exit";
       };
     }
 
     {
       mode = "n";
-      key = "<C-d>";
-      action = "<C-d>zz";
+      key = "<c-d>";
+      action = "<c-d>zz";
       options = {
-        desc = "Page down keeping cursor centered";
+        desc = "page down keeping cursor centered";
       };
     }
 
     {
       mode = "n";
-      key = "<C-u>";
-      action = "<C-u>zz";
+      key = "<c-u>";
+      action = "<c-u>zz";
       options = {
-        desc = "Page up keeping cursor centered";
+        desc = "page up keeping cursor centered";
       };
     }
 
@@ -155,124 +155,124 @@
       key = "n";
       action = "nzzzv";
       options = {
-        desc = "Find next while keeping the cursor centered";
+        desc = "find next while keeping the cursor centered";
       };
     }
 
     {
       mode = "n";
-      key = "N";
-      action = "Nzzzv";
+      key = "n";
+      action = "nzzzv";
       options = {
-        desc = "Find previous while keeping the cursor centered";
+        desc = "find previous while keeping the cursor centered";
       };
     }
 
     {
       mode = "n";
-      key = "<Leader>sv";
-      action = ":vsplit<CR>";
+      key = "<leader>sv";
+      action = ":vsplit<cr>";
       options = {
-        desc = "Split window vertically";
+        desc = "split window vertically";
       };
     }
 
     {
       mode = "n";
-      key = "<Leader>sh";
-      action = ":split<CR>";
+      key = "<leader>sh";
+      action = ":split<cr>";
       options = {
-        desc = "Split window horizontally";
+        desc = "split window horizontally";
       };
     }
 
     {
       mode = "n";
-      key = "<C-j>";
-      action = "<C-w>j";
+      key = "<c-j>";
+      action = "<c-w>j";
       options = {
-        desc = "Move cursor down in split window";
+        desc = "move cursor down in split window";
       };
     }
 
     {
       mode = "n";
-      key = "<Leader>hh";
-      action = ":vertical resize +${toString resize_amount}<CR>";
+      key = "<leader>hh";
+      action = ":vertical resize +${toString resize_amount}<cr>";
       options = {
-        desc = "Increase split width";
+        desc = "increase split width";
       };
     }
 
     {
       mode = "n";
-      key = "<Leader>ll";
-      action = ":vertical resize -${toString resize_amount}<CR>";
+      key = "<leader>ll";
+      action = ":vertical resize -${toString resize_amount}<cr>";
       options = {
-        desc = "Decrease split width";
+        desc = "decrease split width";
       };
     }
 
     {
       mode = "n";
-      key = "<Leader>kk";
-      action = ":resize -${toString resize_amount}<CR>";
+      key = "<leader>kk";
+      action = ":resize -${toString resize_amount}<cr>";
       options = {
-        desc = "Decrease split height";
+        desc = "decrease split height";
       };
     }
 
     {
       mode = "n";
-      key = "<Leader>jj";
-      action = ":resize +${toString resize_amount}<CR>";
+      key = "<leader>jj";
+      action = ":resize +${toString resize_amount}<cr>";
       options = {
-        desc = "Increase split height";
+        desc = "increase split height";
       };
     }
 
     {
       mode = "n";
-      key = "<C-m>";
-      action = "<cmd>AerialToggle<CR>";
+      key = "<c-m>";
+      action = "<cmd>AerialToggle<cr>";
       options = {
         noremap = false;
         silent = true;
-        desc = "Toggle Aerial";
+        desc = "toggle aerial";
       };
     }
 
     {
       mode = "n";
-      key = "<Leader>as";
-      action = ":ASToggle<CR>";
+      key = "<leader>as";
+      action = ":AStoggle<cr>";
       options = {
-        desc = "Toggle AutoSave";
+        desc = "toggle autosave";
       };
     }
 
     {
       mode = "n";
-      key = "<C-/>";
+      key = "<c-/>";
       action = "gc";
       options = {
-        desc = "Comment/Uncomment Selection";
+        desc = "comment/uncomment selection";
       };
     }
 
     {
       mode = "n";
-      key = "<C-n>";
-      action = ":CHADopen<CR>";
+      key = "<c-n>";
+      action = ":CHADopen<cr>";
       options = {
-        desc = "Open CHADtree";
+        desc = "open chadtree";
       };
     }
   ];
   extraConfigLua =
     # lua
     ''
-      function ToggleRelativeLineNumber()
+      function toggleRelativeLineNumber()
         if vim.wo.relativenumber then
           vim.wo.relativenumber = false
         else
@@ -281,7 +281,7 @@
         end
       end
 
-      function ToggleWrap()
+      function toggleWrap()
         vim.wo.wrap = not vim.wo.wrap
       end
     '';
