@@ -7,7 +7,7 @@
     ''
       local chadtree_settings = {
         xdg = true,
-      	view = { width = 28 },
+        view = { width = 28 },
       }
       vim.api.nvim_set_var("chadtree_settings", chadtree_settings)
 
@@ -17,10 +17,5 @@
           vim.cmd('quit')
         end
       end
-
-      -- Set up autocommand in Lua
-      vim.api.nvim_create_autocmd('TabEnter', {
-        callback = close_chadtree,
-      })
-  '';
+    '';
 }

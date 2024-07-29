@@ -32,8 +32,8 @@
     };
     lightbulb = {
       enable = false;
-      sign = true;
-      virtualText = true;
+      sign = false;
+      virtualText = false;
     };
     implement = {
       enable = false;
@@ -76,7 +76,7 @@
 
     {
       mode = "n";
-      key = "<leader>cr";
+      key = "grn";
       action = "<cmd>Lspsaga rename<CR>";
       options = {
         desc = "Rename";

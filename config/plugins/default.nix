@@ -75,31 +75,5 @@
       ./lua/lualine.lua
       ./lua/aerial.lua
     ])
-    +
-    #lua
-    ''
-      -- vim.cmd(":AerialOpen")
-      -- vim.api.nvim_create_autocmd("VimEnter", {
-      --   pattern = "*",
-      --   command = "CHADopen"
-      -- })
-    ''
   );
-  extraConfigLua =
-    # lua
-    ''
-      -- -- Function to close the initial unnamed buffer
-      -- local function auto_open_alpha()
-      --   if #vim.fn.getbufinfo({ buflisted = 1 }) == 0 then
-      --     vim.cmd('silent! bd! 1')
-      --     vim.cmd('Alpha')
-      --   end
-      -- end
-      --
-      -- -- Autocommand to trigger the function on BufEnter
-      -- vim.api.nvim_create_autocmd("BufDelete", {
-      --   pattern = "*",
-      --   callback = auto_open_alpha
-      -- })
-    '';
 }

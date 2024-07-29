@@ -36,10 +36,10 @@
   extraConfigLua =
     # lua
     ''
-           vim.opt.list = true
-           vim.opt.listchars:append("space:⋅")
+      vim.opt.list = true
+      vim.opt.listchars:append("space:⋅")
 
-            -- Function to adjust window size
+      -- Function to adjust window size
       local function AdjustWindowSize(filetype, width)
         -- Resize all windows equally
         vim.cmd("wincmd =")
@@ -72,6 +72,16 @@
           AdjustWindowSize('aerial', 28)
         end,
         group = 'AutoResizeWindows',
+      })
+
+           -- Autocommand trigger on window opening
+      vim.api.nvim_create_autocmd("WinEnter", {
+        callback = function()
+          if vim.bo.filetype == "chadtree" then
+            -- Shift focus to the right window if current buffer is chadtree
+            vim.cmd("wincmd l")
+          end
+        end,
       })
     '';
 }

@@ -1,4 +1,8 @@
-{config, pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   plugins.treesitter = {
     enable = true;
     gccPackage = null;
@@ -15,5 +19,9 @@
       };
     };
   };
+  plugins.treesitter-context = {
+    enable = true;
+  };
+  plugins.treesitter-refactor = {enable = true;};
+  plugins.treesitter-textobjects = {enable = true;};
 }
-

@@ -1,6 +1,5 @@
 {
   description = "Wolf's Neovim Configuration";
-
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -9,7 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
   outputs = {
     self,
     nixpkgs,
@@ -25,7 +23,18 @@
           module = ./config;
         };
       in {
-        packages.default = nvim;
+        packages.default = pkgs.symlinkJoin {
+          name = "nvim";
+          paths = [nvim];
+          buildInputs = [pkgs.makeWrapper];
+          postBuild = ''
+            wrapProgram $out/bin/nvim \
+              --argv0 neovim \
+              --run 'export PATH=$PATH:${
+              pkgs.lib.makeBinPath (import ./config/lsps/lsp-packages.nix {inherit pkgs;})
+            }'
+          '';
+        };
       }
     );
 }

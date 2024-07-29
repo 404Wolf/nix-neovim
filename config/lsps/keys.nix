@@ -29,10 +29,6 @@
       action = "workspace_symbol";
       desc = "Workspace Symbol";
     };
-    "grn" = {
-      action = "rename";
-      desc = "Rename";
-    };
     "gra" = {
       action = "code_action";
       desc = "Rename";
