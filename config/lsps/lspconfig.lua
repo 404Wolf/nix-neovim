@@ -6,35 +6,30 @@ lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_c
 	capabilities = vim.tbl_deep_extend(
 		"force",
 		vim.lsp.protocol.make_client_capabilities(),
-		vim.lsp.protocol.make_client_capabilities(),
+		coq.lsp_ensure_capabilities(),
 		require("lsp-file-operations").default_capabilities()
 	),
 })
 
--- Common capabilities configuration
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-local coq_capabilities = coq.lsp_ensure_capabilities({ capabilities = capabilities })
-
 -- Function to setup servers with coq capabilities and autostart
-local function setup_server(name, config, settings)
+local function setup_server(name, config)
 	config = config or { autostart = true }
-	lspconfig[name].setup(vim.tbl_extend("force", coq_capabilities, config))
+	lspconfig[name].setup(config)
 end
---
+
 -- Create a capabilities table with everything disabled
 local function create_minimal_capabilities()
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	for capability, _ in pairs(capabilities) do
-		if type(capabilities[capability]) == "table" then
-			for subcapability, _ in pairs(capabilities[capability]) do
-				capabilities[capability][subcapability] = false
+	local minimal_capabilities = vim.lsp.protocol.make_client_capabilities()
+	for capability, value in pairs(minimal_capabilities) do
+		if type(value) == "table" then
+			for subcapability in pairs(value) do
+				minimal_capabilities[capability][subcapability] = false
 			end
 		else
-			capabilities[capability] = false
+			minimal_capabilities[capability] = false
 		end
 	end
-	return capabilities
+	return minimal_capabilities
 end
 
 -- Setup servers
@@ -73,7 +68,7 @@ nixd_capabilities.workspace.symbol = {
 	},
 }
 
--- I like nixd's symbol tree offers. I don't like the LSP for anything else.
+-- Setup nixd with limited capabilities
 lspconfig.nixd.setup({
 	capabilities = nixd_capabilities,
 	settings = {
@@ -90,6 +85,8 @@ lspconfig.nixd.setup({
 		},
 	},
 })
+
+-- Setup other servers
 setup_server("nil_ls")
 setup_server("bashls")
 setup_server("jsonls")
@@ -106,3 +103,4 @@ setup_server("ltex")
 setup_server("texlab")
 setup_server("html", { capabilities = capabilities })
 setup_server("taplo", { capabilities = capabilities })
+setup_server("jdtls")

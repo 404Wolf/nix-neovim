@@ -31,6 +31,7 @@
     };
   };
   extraPlugins = [
+    pkgs.vimPlugins.nvim-jdtls
     pkgs.vimPlugins.onedarkpro-nvim
     pkgs.vimPlugins.actions-preview-nvim
     pkgs.vimPlugins.lualine-nvim
@@ -69,11 +70,14 @@
       };
     })
   ];
-  extraConfigLuaPost = (
-    toString (builtins.map (f: "${builtins.readFile f}\n") [
+  extraConfigLuaPost = ''
+    -- local jdt_language_server_path = '${pkgs.jdt-language-server}/bin/jdtls'
+
+    ${toString (builtins.map (f: "${builtins.readFile f}\n") [
       ./lua/actions-preview.lua
       ./lua/lualine.lua
       ./lua/aerial.lua
-    ])
-  );
+      # ./lua/jdtls.lua
+    ])}
+  '';
 }

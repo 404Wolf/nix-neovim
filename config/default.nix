@@ -8,6 +8,7 @@
   extraPackages = [
     pkgs.alejandra
     pkgs.typescript
+    pkgs.jdk
     pkgs.nodePackages.typescript-language-server
     pkgs.prettierd
     pkgs.beautysh
@@ -16,7 +17,6 @@
     pkgs.isort
     pkgs.luarocks-nix
     pkgs.luajitPackages.lua-lsp
-    # pkgs.basedpyright
   ];
   opts = let
     tab_amount = 2;
