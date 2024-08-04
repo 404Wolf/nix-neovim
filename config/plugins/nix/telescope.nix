@@ -86,11 +86,12 @@
           desc = "Buffer";
         };
       };
-    };
-  };
-  keymaps = {
-    "<leader>fhh" = {
-      action = ":Telescope git_file_history<CR>";
+      "<leader>fhh" = {
+        action = "git_file_history";
+        options = {
+          desc = "View file history";
+        };
+      };
     };
   };
   extraConfigLua = ''
