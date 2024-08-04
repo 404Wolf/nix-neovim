@@ -28,6 +28,7 @@
           paths = [nvim];
           buildInputs = [pkgs.makeWrapper];
           postBuild = ''
+            # Wrap the program with LSPs in the PATH
             wrapProgram $out/bin/nvim \
               --argv0 neovim \
               --run 'export PATH=$PATH:${

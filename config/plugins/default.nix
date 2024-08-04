@@ -13,23 +13,16 @@
     ./nix/auto-save.nix
     ./nix/gitsigns.nix
     ./nix/copilot-lua.nix
-    ./nix/comment.nix
     ./nix/dap.nix
+    ./nix/comment.nix
     ./nix/fugitive.nix
     ./nix/dressing.nix
     ./nix/gitconflict.nix
     ./nix/ts-autotag.nix
     ./nix/marks.nix
+    ./nix/alpha.nix
   ];
   luaLoader.enable = true;
-  plugins = {
-    # Dashboard
-    alpha = {
-      enable = true;
-      theme = "dashboard";
-      iconsEnabled = true;
-    };
-  };
   extraPlugins = [
     pkgs.vimPlugins.nvim-jdtls
     pkgs.vimPlugins.onedarkpro-nvim
@@ -69,10 +62,19 @@
         meta.homepage = "https://github.com/antosha417/nvim-lsp-file-operations";
       };
     })
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "telescope-git-file-history";
+      version = "2024-08-04";
+      src = pkgs.fetchFromGitHub {
+        owner = "isak102";
+        repo = "telescope-git-file-history.nvim";
+        rev = "f94fab1d5a51fa28dd95b1a6bd377505dc1a8e82";
+        sha256 = "sha256-7cVmZaseWntB339DSB4sNKIMQkwkhLPBYEuLlVg0J28=";
+        meta.homepage = "https://github.com/isak102/telescope-git-file-history.nvim";
+      };
+    })
   ];
   extraConfigLuaPost = ''
-    -- local jdt_language_server_path = '${pkgs.jdt-language-server}/bin/jdtls'
-
     ${toString (builtins.map (f: "${builtins.readFile f}\n") [
       ./lua/actions-preview.lua
       ./lua/lualine.lua

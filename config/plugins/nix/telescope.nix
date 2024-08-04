@@ -88,13 +88,37 @@
       };
     };
   };
+  keymaps = {
+    "<leader>fhh" = {
+      action = ":Telescope git_file_history<CR>";
+    };
+  };
   extraConfigLua = ''
+    local gfh_actions = require("telescope").extensions.git_file_history.actions
+
     require("telescope").setup{
       pickers = {
         colorscheme = {
           enable_preview = true
         }
-      }
+      },
+      extensions = {
+        git_file_history = {
+          -- Keymaps inside the picker
+          mappings = {
+            i = {
+              ["<C-g>"] = gfh_actions.open_in_browser,
+            },
+            n = {
+              ["<C-g>"] = gfh_actions.open_in_browser,
+            },
+          },
+          -- The command to use for opening the browser (nil or string)
+          -- If nil, it will check if xdg-open, open, start, wslview are available, in that order.
+          browser_command = nil,
+        },
+      },
     }
+    require("telescope").load_extension("git_file_history")
   '';
 }

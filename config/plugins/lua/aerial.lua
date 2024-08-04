@@ -8,9 +8,9 @@ require("aerial").setup({
     -- They can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
     -- min_width and max_width can be a list of mixed types.
     -- max_width = {40, 0.2} means "the lesser of 40 columns or 20% of total"
-    max_width = { 40, 0.2 },
+    max_width = 28,
     width = 28,
-    -- min_width = 10,
+    min_width = 28,
 
     -- key-value pairs of window-local options for aerial window (e.g. winhl)
     win_opts = {},
@@ -24,13 +24,13 @@ require("aerial").setup({
     -- Determines where the aerial window will be opened
     --   edge   - open aerial at the far right/left of the editor
     --   window - open aerial to the right/left of the current window
-    placement = "edge",
+    placement = "window",
 
     -- When the symbols change, resize the aerial window (within min/max constraints) to fit
     resize_to_content = false,
 
     -- Preserve window size equality with (:help CTRL-W_=)
-    preserve_equality = false,
+    preserve_equality = true,
   },
 
   -- Determines how the aerial window decides which buffer to display symbols for
@@ -302,7 +302,7 @@ require("aerial").setup({
       winblend = 10,
     },
     -- Jump to symbol in source window when the cursor moves
-    autojump = false,
+    autojump = true,
     -- Show a preview of the code in the right column, when there are no child symbols
     preview = false,
     -- Keymaps in the nav window

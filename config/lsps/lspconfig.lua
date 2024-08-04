@@ -69,22 +69,20 @@ nixd_capabilities.workspace.symbol = {
 }
 
 -- Setup nixd with limited capabilities
-lspconfig.nixd.setup({
-	capabilities = nixd_capabilities,
-	settings = {
-		nixd = {
-			options = {
-				enable = true,
-				target = {
-					symbol = true,
-					diagnostics = false,
-					completion = false,
-					formatting = false,
-				},
-			},
-		},
-	},
-})
+-- lspconfig.nixd.setup({
+-- 	capabilities = nixd_capabilities,
+-- 	settings = {
+-- 		options = {
+-- 			enable = false,
+-- 			target = {
+-- 				symbol = true,
+-- 				diagnostics = false,
+-- 				completion = false,
+-- 				formatting = false,
+-- 			},
+-- 		},
+-- 	},
+-- })
 
 -- Setup other servers
 setup_server("nil_ls")

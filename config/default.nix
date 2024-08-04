@@ -54,34 +54,5 @@
           end
         end
       end
-
-      -- Auto command group for resizing windows
-      vim.api.nvim_create_augroup('AutoResizeWindows', { clear = true })
-
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = 'neo-tree',
-        callback = function()
-          AdjustWindowSize('CHADtree', 28)
-        end,
-        group = 'AutoResizeWindows',
-      })
-
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = 'aerial',
-        callback = function()
-          AdjustWindowSize('aerial', 28)
-        end,
-        group = 'AutoResizeWindows',
-      })
-
-           -- Autocommand trigger on window opening
-      vim.api.nvim_create_autocmd("WinEnter", {
-        callback = function()
-          if vim.bo.filetype == "chadtree" then
-            -- Shift focus to the right window if current buffer is chadtree
-            vim.cmd("wincmd l")
-          end
-        end,
-      })
     '';
 }
