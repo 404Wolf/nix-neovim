@@ -50,43 +50,13 @@
           desc = "+buffer";
         };
       };
-      "<leader>fr" = {
-        action = "live_grep";
-        options = {
-          desc = "Find text";
-        };
-      };
-      "<leader>fR" = {
-        action = "resume";
-        options = {
-          desc = "Resume";
-        };
-      };
-      "<leader>fgf" = {
-        action = "git_files";
-        options = {
-          desc = "Search git files";
-        };
-      };
-      "<leader>fgc" = {
-        action = "git_commits";
-        options = {
-          desc = "Commits";
-        };
-      };
       "<leader>gs" = {
         action = "git_status";
         options = {
           desc = "Status";
         };
       };
-      "<leader>fcb" = {
-        action = "current_buffer_fuzzy_find";
-        options = {
-          desc = "Buffer";
-        };
-      };
-      "<leader>fhh" = {
+      "<leader>fh" = {
         action = "git_file_history";
         options = {
           desc = "View file history";
