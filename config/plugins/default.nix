@@ -7,6 +7,7 @@
     ./nix/chadtree.nix
     ./nix/treesitter.nix
     ./nix/barbar.nix
+    ./nix/nvim-colorizer.nix
     ./nix/conform.nix
     ./nix/autopairs.nix
     ./nix/virt-column.nix
