@@ -62,22 +62,16 @@
           desc = "Resume";
         };
       };
-      "<leader>fgf" = {
-        action = "git_files";
-        options = {
-          desc = "Search git files";
-        };
-      };
-      "<leader>fgc" = {
+      "<leader>fcg" = {
         action = "git_commits";
         options = {
           desc = "Commits";
         };
-      };
-      "<leader>fcb" = {
-        action = "current_buffer_fuzzy_find";
-        options = {
-          desc = "Buffer";
+        "<leader>fhh" = {
+          action = "git_file_history";
+          options = {
+            desc = "File history";
+          };
         };
       };
     };
