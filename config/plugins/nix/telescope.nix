@@ -67,11 +67,11 @@
         options = {
           desc = "Commits";
         };
-        "<leader>fhh" = {
-          action = "git_file_history";
-          options = {
-            desc = "File history";
-          };
+      };
+      "<leader>fhh" = {
+        action = "git_file_history";
+        options = {
+          desc = "File history";
         };
       };
     };
