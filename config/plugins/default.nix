@@ -7,6 +7,7 @@
     ./nix/chadtree.nix
     ./nix/treesitter.nix
     ./nix/barbar.nix
+    ./nix/nvim-colorizer.nix
     ./nix/conform.nix
     ./nix/autopairs.nix
     ./nix/virt-column.nix
@@ -23,6 +24,14 @@
     ./nix/alpha.nix
   ];
   luaLoader.enable = true;
+  plugins = {
+    # Dashboard
+    alpha = {
+      enable = true;
+      theme = "dashboard";
+      iconsEnabled = true;
+    };
+  };
   extraPlugins = [
     pkgs.vimPlugins.nvim-jdtls
     pkgs.vimPlugins.onedarkpro-nvim
@@ -82,4 +91,21 @@
       # ./lua/jdtls.lua
     ])}
   '';
+  extraConfigLua =
+    # lua
+    ''
+      -- -- Function to close the initial unnamed buffer
+      -- local function auto_open_alpha()
+      --   if #vim.fn.getbufinfo({ buflisted = 1 }) == 0 then
+      --     vim.cmd('silent! bd! 1')
+      --     vim.cmd('Alpha')
+      --   end
+      -- end
+      --
+      -- -- Autocommand to trigger the function on BufEnter
+      -- vim.api.nvim_create_autocmd("BufDelete", {
+      --   pattern = "*",
+      --   callback = auto_open_alpha
+      -- })
+    '';
 }

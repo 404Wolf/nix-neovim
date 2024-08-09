@@ -50,23 +50,68 @@
           desc = "+buffer";
         };
       };
-      "<leader>gs" = {
-        action = "git_status";
+      "<leader>fr" = {
+        action = "live_grep";
         options = {
-          desc = "Status";
+          desc = "Find text";
         };
       };
-      "<leader>fh" = {
-        action = "git_file_history";
+      "<leader>fR" = {
+        action = "resume";
         options = {
-          desc = "View file history";
+          desc = "Resume";
+        };
+      };
+      "<leader>fgf" = {
+        action = "git_files";
+        options = {
+          desc = "Search git files";
+        };
+      };
+      "<leader>fgc" = {
+        action = "git_commits";
+        options = {
+          desc = "Commits";
+        };
+      };
+      "<leader>fcb" = {
+        action = "current_buffer_fuzzy_find";
+        options = {
+          desc = "Buffer";
         };
       };
     };
   };
+
+  keymaps = [
+    {
+      mode = "n";
+      key = "<leader>sd";
+      action = "<cmd>Telescope diagnostics bufnr=0<cr>";
+      options = {
+        desc = "Document diagnostics";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fe";
+      action = "<cmd>Telescope file_browser<cr>";
+      options = {
+        desc = "File browser";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fE";
+      action = "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>";
+      options = {
+        desc = "File browser";
+      };
+    }
+  ];
+
   extraConfigLua = ''
     local gfh_actions = require("telescope").extensions.git_file_history.actions
-
     require("telescope").setup{
       pickers = {
         colorscheme = {

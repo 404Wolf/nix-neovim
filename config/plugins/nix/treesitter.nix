@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   plugins.treesitter = {
     enable = true;
     gccPackage = null;

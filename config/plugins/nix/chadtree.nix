@@ -17,5 +17,10 @@
           vim.cmd('quit')
         end
       end
+
+      -- Set up autocommand in Lua
+      vim.api.nvim_create_autocmd('TabEnter', {
+        callback = close_chadtree,
+      })
     '';
 }

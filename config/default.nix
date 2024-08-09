@@ -54,5 +54,24 @@
           end
         end
       end
+
+      -- Auto command group for resizing windows
+      vim.api.nvim_create_augroup('AutoResizeWindows', { clear = true })
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'neo-tree',
+        callback = function()
+          AdjustWindowSize('CHADtree', 28)
+        end,
+        group = 'AutoResizeWindows',
+      })
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'aerial',
+        callback = function()
+          AdjustWindowSize('aerial', 28)
+        end,
+        group = 'AutoResizeWindows',
+      })
     '';
 }
