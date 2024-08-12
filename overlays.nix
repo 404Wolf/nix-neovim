@@ -1,7 +1,12 @@
-[
+{nixpkgs-bashls}: [
   (final: prev: let
-    pkgs = final;
+    pkgs = prev;
   in {
+    nodePackages_latest =
+      pkgs.nodePackages_latest
+      // {
+        bash-language-server = nixpkgs-bashls.nodePackages_latest.bash-language-server;
+      };
     vimPlugins =
       prev.vimPlugins
       // {

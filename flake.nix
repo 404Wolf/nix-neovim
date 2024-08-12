@@ -4,6 +4,7 @@
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    older-pkgs.url = "github:NixOS/nixpkgs/68c9ed8bbed9dfce253cc91560bf9043297ef2fe";
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,12 +15,14 @@
     nixpkgs,
     nixvim,
     flake-utils,
-  }:
+    ...
+  } @ inputs:
     flake-utils.lib.eachDefaultSystem (
       system: let
+        older-pkgs = import inputs.older-pkgs {inherit system;};
         pkgs = import nixpkgs {
           inherit system;
-          overlays = import ./overlays.nix;
+          overlays = import ./overlays.nix {nixpkgs-bashls = older-pkgs;};
         };
         nixvim' = nixvim.legacyPackages.${system};
         nvim' = nixvim'.makeNixvimWithModule {
