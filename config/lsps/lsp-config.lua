@@ -52,40 +52,30 @@ setup_server("lua_ls", {
 })
 setup_server("rust_analyzer")
 
-local nixd_capabilities = create_minimal_capabilities()
--- Enable only symbol-related capabilities
-nixd_capabilities.textDocument.documentSymbol = {
-	dynamicRegistration = true,
-	symbolKind = {
-		valueSet = vim.tbl_values(vim.lsp.protocol.SymbolKind),
-	},
-	hierarchicalDocumentSymbolSupport = true,
-}
-nixd_capabilities.workspace.symbol = {
-	dynamicRegistration = true,
-	symbolKind = {
-		valueSet = vim.tbl_values(vim.lsp.protocol.SymbolKind),
-	},
-}
+-- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+-- https://github.com/hrsh7th/cmp-nvim-lsp/issues/42#issuecomment-1283825572
+local caps = vim.tbl_deep_extend(
+	"force",
+	vim.lsp.protocol.make_client_capabilities(),
+	coq.lsp_ensure_capabilities(),
+	-- File watching is disabled by default for neovim.
+	-- See: https://github.com/neovim/neovim/pull/22405
+	{ workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } }
+)
 
--- Setup nixd with limited capabilities
--- lspconfig.nixd.setup({
--- 	capabilities = nixd_capabilities,
--- 	settings = {
--- 		options = {
--- 			enable = false,
--- 			target = {
--- 				symbol = true,
--- 				diagnostics = false,
--- 				completion = false,
--- 				formatting = false,
--- 			},
--- 		},
--- 	},
--- })
+require("lspconfig").nil_ls.setup({
+	autostart = true,
+	capabilities = caps,
+	settings = {
+		["nil"] = {
+			testSetting = 42,
+			formatting = {
+				command = { "nixpkgs-fmt" },
+			},
+		},
+	},
+})
 
--- Setup other servers
-setup_server("nil_ls")
 setup_server("bashls")
 setup_server("jsonls")
 setup_server("yamlls", {

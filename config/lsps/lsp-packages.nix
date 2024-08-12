@@ -26,7 +26,6 @@
   pkgs.tree-sitter
   pkgs.texlab
   pkgs.nil
-  pkgs.nixd
   pkgs.alejandra
   pkgs.jdt-language-server
   (pkgs.symlinkJoin {
