@@ -18,7 +18,6 @@
     ./nix/comment.nix
     ./nix/fugitive.nix
     ./nix/dressing.nix
-    ./nix/gitconflict.nix
     ./nix/ts-autotag.nix
     ./nix/marks.nix
     ./nix/alpha.nix
@@ -40,7 +39,6 @@
     pkgs.vimPlugins.aerial-nvim
     pkgs.vimPlugins.nvim-lspimport
     pkgs.vimPlugins.copilot-status
-    pkgs.vimPlugins.nvim-lsp-file-operations
     pkgs.vimPlugins.telescope-git-file-history
   ];
   extraConfigLuaPost = ''
@@ -48,7 +46,6 @@
       ./lua/actions-preview.lua
       ./lua/lualine.lua
       ./lua/aerial.lua
-      # ./lua/jdtls.lua
     ])}
   '';
 }

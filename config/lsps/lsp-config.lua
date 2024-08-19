@@ -7,7 +7,6 @@ lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_c
 		"force",
 		vim.lsp.protocol.make_client_capabilities(),
 		coq.lsp_ensure_capabilities(),
-		require("lsp-file-operations").default_capabilities()
 	),
 })
 
@@ -88,6 +87,7 @@ setup_server("yamlls", {
 	},
 })
 setup_server("ltex")
+setup_server("typst_lsp")
 setup_server("texlab")
 setup_server("html", { capabilities = capabilities })
 setup_server("taplo", { capabilities = capabilities })

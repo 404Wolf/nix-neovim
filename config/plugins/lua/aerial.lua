@@ -86,7 +86,7 @@ require("aerial").setup({
 
 	-- When true, don't load aerial until a command or function is called
 	-- Defaults to true, unless `on_attach` is provided, then it defaults to false
-	lazy_load = false,
+	lazy_load = true,
 
 	-- Disable aerial on files with this many lines
 	disable_max_lines = 10000,
@@ -146,7 +146,7 @@ require("aerial").setup({
 	-- Aerial will not open when these are focused, and existing aerial windows will not be updated
 	ignore = {
 		-- Ignore unlisted buffers. See :help buflisted
-		unlisted_buffers = false,
+		unlisted_buffers = true,
 
 		-- Ignore diff windows (setting to false will allow aerial in diff windows)
 		diff_windows = true,
@@ -307,13 +307,13 @@ require("aerial").setup({
 		preview = false,
 		-- Keymaps in the nav window
 		keymaps = {
-			["<CR>"] = "actions.jump",
-			["<2-LeftMouse>"] = "actions.jump",
-			["<C-v>"] = "actions.jump_vsplit",
-			["<C-s>"] = "actions.jump_split",
-			["h"] = "actions.left",
-			["l"] = "actions.right",
-			["<C-c>"] = "actions.close",
+			-- ["<CR>"] = "actions.jump",
+			-- ["<2-LeftMouse>"] = "actions.jump",
+			-- ["<C-v>"] = "actions.jump_vsplit",
+			-- ["<C-s>"] = "actions.jump_split",
+			-- ["h"] = "actions.left",
+			-- ["l"] = "actions.right",
+			-- ["<C-c>"] = "actions.close",
 		},
 	},
 

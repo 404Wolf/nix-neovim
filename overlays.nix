@@ -43,17 +43,6 @@
             meta.homepage = "https://github.com/jonahgoldwastaken/copilot-status.nvim";
           };
         };
-        nvim-lsp-file-operations = pkgs.vimUtils.buildVimPlugin {
-          pname = "nvim-lsp-file-operations";
-          version = "2024-07-23";
-          src = pkgs.fetchFromGitHub {
-            owner = "antosha417";
-            repo = "nvim-lsp-file-operations";
-            rev = "92a673de7ecaa157dd230d0128def10beb56d103";
-            sha256 = "sha256-FeqmybXQeZUHv/td2QTLxUZeWSblRhDqwDx9ih0A5DM=";
-            meta.homepage = "https://github.com/antosha417/nvim-lsp-file-operations";
-          };
-        };
         telescope-git-file-history = pkgs.vimUtils.buildVimPlugin {
           name = "telescope-git-file-history";
           version = "2024-08-04";

@@ -4,6 +4,7 @@
   pkgs.luajitPackages.lua-lsp
   pkgs.lua-language-server
   pkgs.pyright
+  pkgs.typst-lsp
   pkgs.luarocks-nix
   pkgs.stylua
   pkgs.prettierd

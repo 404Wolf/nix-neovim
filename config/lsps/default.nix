@@ -16,10 +16,7 @@
           vim.tbl_deep_extend(
             "force",
             vim.lsp.protocol.make_client_capabilities(),
-            vim.lsp.protocol.make_client_capabilities(),
-            -- returns configured operations if setup() was already called
-            -- or default operations if not
-            require("lsp-file-operations").default_capabilities()
+            require("coq").lsp_ensure_capabilities({})
           )
         '';
       postConfig =
