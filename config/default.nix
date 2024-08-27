@@ -31,7 +31,7 @@
     number = true;
 
     # Ruler at 90 characters
-    colorcolumn = "80, 90, 100";
+    colorcolumn = "80,90,100";
   };
 
   extraConfigLua =

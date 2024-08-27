@@ -1,35 +1,37 @@
-{pkgs}: [
-  pkgs.ltex-ls
-  pkgs.nodePackages.prettier
-  pkgs.luajitPackages.lua-lsp
-  pkgs.lua-language-server
-  pkgs.pyright
-  pkgs.typst-lsp
-  pkgs.luarocks-nix
-  pkgs.stylua
-  pkgs.prettierd
-  pkgs.nixfmt-rfc-style
-  pkgs.black # Python formatter
-  pkgs.isort # Python import sorter
-  pkgs.go_1_21 # Go formatter
-  pkgs.nodePackages_latest.bash-language-server
-  pkgs.yaml-language-server
-  pkgs.vscode-langservers-extracted
-  pkgs.gosimports
-  pkgs.typescript
-  pkgs.beautysh
-  pkgs.rustc
-  pkgs.cargo
-  pkgs.rust-analyzer
-  pkgs.rustfmt
-  pkgs.taplo
-  pkgs.pandoc
-  pkgs.tree-sitter
-  pkgs.texlab
-  pkgs.nil
-  pkgs.alejandra
-  pkgs.jdt-language-server
-  (pkgs.symlinkJoin {
+{pkgs}:
+with pkgs; [
+  ltex-ls
+  nodePackages.prettier
+  sourcekit-lsp
+  luajitPackages.lua-lsp
+  lua-language-server
+  pyright
+  typst-lsp
+  luarocks-nix
+  stylua
+  prettierd
+  nixfmt-rfc-style
+  black # Python formatter
+  isort # Python import sorter
+  go_1_21 # Go formatter
+  nodePackages_latest.bash-language-server
+  yaml-language-server
+  vscode-langservers-extracted
+  gosimports
+  typescript
+  beautysh
+  rustc
+  cargo
+  rust-analyzer
+  rustfmt
+  taplo
+  pandoc
+  tree-sitter
+  texlab
+  nil
+  alejandra
+  jdt-language-server
+  (symlinkJoin {
     name = "latex-indent";
     paths = [pkgs.perl538Packages.LatexIndent];
     buildInputs = [pkgs.makeWrapper];
