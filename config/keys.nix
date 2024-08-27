@@ -245,7 +245,7 @@
     {
       mode = "n";
       key = "<leader>as";
-      action = ":AStoggle<cr>";
+      action = ":ASToggle<cr>";
       options = {
         desc = "toggle autosave";
       };

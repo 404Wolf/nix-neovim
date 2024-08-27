@@ -15,6 +15,7 @@
       sh = ["beautysh"];
       rust = ["rustfmt"];
       tex = ["latexindent"];
+      c = ["clang-format"];
     };
   };
   keymaps = [

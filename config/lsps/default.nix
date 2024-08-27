@@ -7,7 +7,7 @@
     ./plugins/typescript-tools.nix
   ];
   plugins = {
-    lsp-format = {enable = true;};
+    # lsp-format = {enable = true;};
     lsp = {
       enable = true;
       keymaps = import ./keys.nix;
