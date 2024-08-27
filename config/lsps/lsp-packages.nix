@@ -2,8 +2,8 @@
 with pkgs; [
   ltex-ls
   nodePackages.prettier
-  sourcekit-lsp
   luajitPackages.lua-lsp
+  llvmPackages_19.clang-tools
   lua-language-server
   pyright
   typst-lsp
