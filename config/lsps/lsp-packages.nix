@@ -7,6 +7,7 @@ with pkgs; [
   lua-language-server
   pyright
   typst-lsp
+  typstfmt
   luarocks-nix
   stylua
   prettierd
