@@ -61,9 +61,6 @@ These might be a bit weird at first
 
 ## Tools and Plugins
 
-- **Toggle aerial**: `<c-m>` - `<cmd>aerialtoggle<cr>`
-  - Aerial is a super cool symbol tree bar on the right
-
 - **Open chadtree**: `<c-n>` - `:CHADopen<cr>`
   - Chadtree is a very powerful file tree
 

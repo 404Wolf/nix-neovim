@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./plugins/fidget.nix
     ./plugins/lspkind.nix

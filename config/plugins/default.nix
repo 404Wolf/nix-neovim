@@ -36,7 +36,6 @@
     pkgs.vimPlugins.onedarkpro-nvim
     pkgs.vimPlugins.actions-preview-nvim
     pkgs.vimPlugins.lualine-nvim
-    pkgs.vimPlugins.aerial-nvim
     pkgs.vimPlugins.nvim-lspimport
     pkgs.vimPlugins.copilot-status
     pkgs.vimPlugins.telescope-git-file-history
@@ -45,7 +44,6 @@
     ${toString (builtins.map (f: "${builtins.readFile f}\n") [
       ./lua/actions-preview.lua
       ./lua/lualine.lua
-      ./lua/aerial.lua
     ])}
   '';
 }

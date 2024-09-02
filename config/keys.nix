@@ -233,17 +233,6 @@
 
     {
       mode = "n";
-      key = "<c-m>";
-      action = "<cmd>AerialToggle<cr>";
-      options = {
-        noremap = false;
-        silent = true;
-        desc = "toggle aerial";
-      };
-    }
-
-    {
-      mode = "n";
       key = "<leader>as";
       action = ":ASToggle<cr>";
       options = {
