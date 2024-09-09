@@ -10,7 +10,7 @@
       css = ["prettierd"];
       json = ["prettierd"];
       yaml = ["prettierd"];
-      nix = ["alejandra"];
+      nix = ["nix fmt" "alejandra" {stop_after_first = true;}];
       go = ["goimports" "gofmt"];
       bash = ["beautysh"];
       sh = ["beautysh"];

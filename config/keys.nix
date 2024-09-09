@@ -5,6 +5,12 @@
   in [
     {
       mode = "n";
+      key = "<leader>ts";
+      action = ":lua toggleSpellCheck()<CR>";
+    }
+
+    {
+      mode = "n";
       key = "<leader>dbs";
       action = ":exe 'normal! v<-left><left>S'<CR>";
       options = {
@@ -18,28 +24,28 @@
       mode = "n";
       key = "<c-j>";
       action = "<c-w>j";
-      options = { };
+      options = {};
     }
 
     {
       mode = "n";
       key = "<c-k>";
       action = "<c-w>k";
-      options = { };
+      options = {};
     }
 
     {
       mode = "n";
       key = "<c-h>";
       action = "<c-w>h";
-      options = { };
+      options = {};
     }
 
     {
       mode = "n";
       key = "<c-l>";
       action = "<c-w>l";
-      options = { };
+      options = {};
     }
 
     # stay selected after indent
@@ -272,6 +278,17 @@
 
       function toggleWrap()
         vim.wo.wrap = not vim.wo.wrap
+      end
+
+      function toggleSpellCheck()
+        if vim.opt.spell:get() then
+          vim.opt.spell = false
+          print("Spell checking disabled")
+        else
+          vim.opt.spell = true
+          vim.opt.spelllang = "en_us"
+          print("Spell checking enabled")
+        end
       end
     '';
 }
