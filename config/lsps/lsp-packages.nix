@@ -32,6 +32,14 @@ with pkgs; [
   nil
   alejandra
   jdt-language-server
+  typescript
+  nodePackages.typescript-language-server
+  prettierd
+  beautysh
+  black
+  isort
+  luarocks-nix
+  luajitPackages.lua-lsp
   (symlinkJoin {
     name = "latex-indent";
     paths = [pkgs.perl538Packages.LatexIndent];

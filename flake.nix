@@ -24,6 +24,7 @@
           inherit system;
           overlays = import ./overlays.nix {nixpkgs-bashls = older-pkgs;};
         };
+        lspPackages = import ./config/lsps/lsp-packages.nix {inherit pkgs;};
         nixvim' = nixvim.legacyPackages.${system};
         nvim' = nixvim'.makeNixvimWithModule {
           inherit pkgs;
@@ -37,12 +38,8 @@
             paths = [nvim'];
             buildInputs = [pkgs.makeWrapper];
             postBuild = ''
-              # Wrap the program with LSPs in the PATH
               wrapProgram $out/bin/nvim \
-                --argv0 neovim \
-                --run 'export PATH=$PATH:${
-                pkgs.lib.makeBinPath (import ./config/lsps/lsp-packages.nix {inherit pkgs;})
-              }'
+                --suffix PATH : ${pkgs.lib.makeBinPath lspPackages}
             '';
           };
         };

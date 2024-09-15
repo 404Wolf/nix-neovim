@@ -6,17 +6,8 @@
   ];
   colorscheme = "onedark_dark";
   extraPackages = with pkgs; [
-    alejandra
-    typescript
-    nodePackages.typescript-language-server
-    prettierd
-    beautysh
-    black
-    isort
-    luarocks-nix
-    luajitPackages.lua-lsp
-    pandoc
     ripgrep
+    pandoc
     jdk
   ];
   opts = let
@@ -39,5 +30,7 @@
     ''
       vim.opt.list = true
       vim.opt.listchars:append("space:⋅")
+      vim.opt.foldmethod=indent
+      vim.opt.foldenable = false
     '';
 }

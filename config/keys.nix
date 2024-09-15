@@ -82,9 +82,9 @@
     # folding
     {
       mode = "n";
-      key = "zt";
-      action = "za";
-      options = {desc = "toggle fold at cursor";};
+      key = "z9";
+      action = ":set foldlevel=99<CR>";
+      options = {desc = "close fold at cursor";};
     }
 
     {
@@ -99,14 +99,6 @@
       key = "zo";
       action = ":lua vim.wo.foldlevel = vim.wo.foldlevel + 1<cr>";
       options = {desc = "open fold at cursor";};
-    }
-
-    # window sizing
-    {
-      mode = "n";
-      key = "<c-m>";
-      action = ":only<cr>";
-      options = {desc = "maximize current window";};
     }
 
     {

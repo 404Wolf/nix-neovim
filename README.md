@@ -55,7 +55,7 @@ These might be a bit weird at first
 
 ## Code Folding
 
-- **Toggle fold at cursor**: `zt` - `za`
+- **Toggle fold at cursor**: `za`
 - **Close fold at cursor**: `zc` - `:lua vim.wo.foldlevel = vim.wo.foldlevel - 1<cr>`
 - **Open fold at cursor**: `zo` - `:lua vim.wo.foldlevel = vim.wo.foldlevel + 1<cr>`
 
@@ -74,7 +74,7 @@ These might be a bit weird at first
 - **Goto References**: `gr` - `references`
 - **Hover**: `K` - `hover` (view stuff about stuff)
 - **Workspace Symbol**: `<leader>cw` - `workspace_symbol`
-- **Rename**: `grn` - `rename`
+- **Rename**: `gnr` - `rename`
 - **Line Diagnostics**: `gld` - `open_float`
 - **View Code action**: `gra`
 - **Next Diagnostic**: `[d` - `goto_next`

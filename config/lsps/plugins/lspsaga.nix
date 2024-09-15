@@ -76,7 +76,7 @@
 
     {
       mode = "n";
-      key = "grn";
+      key = "gnr";
       action = "<cmd>Lspsaga rename<CR>";
       options = {
         desc = "Rename";
