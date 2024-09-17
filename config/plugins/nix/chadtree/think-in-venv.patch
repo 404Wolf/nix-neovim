@@ -1,0 +1,42 @@
+diff --git $out/chadtree/__main__.py $out/chadtree/__main__.py
+index fdf5cf1..80a93f4 100644
+--- $out/chadtree/__main__.py
++++ $out/chadtree/__main__.py
+@@ -130,15 +130,10 @@ elif command == "run":
+     except Exception:
+         lock = ""
+     try:
+-        if not _IN_VENV:
+-            raise ImportError()
+-        elif lock != _REQ:
+-            raise ImportError()
+-        else:
+-            import pynvim_pp
+-            import yaml
++        import pynvim_pp
++        import yaml
+ 
+-            from .client import init
++        from .client import init
+     except ImportError as e:
+         print(e)
+         msg = """
+diff --git a/chadtree/consts.py b/chadtree/consts.py
+index e2d3aa0..e77a129 100644
+--- a/chadtree/consts.py
++++ b/chadtree/consts.py
+@@ -1,4 +1,5 @@
+ from os import environ, name
++from pathlib import Path
+ 
+ from chad_types import TOP_LEVEL
+ 
+@@ -24,7 +25,7 @@ SETTINGS_VAR = "chadtree_settings"
+ STORAGE
+ """
+ 
+-_VARS = TOP_LEVEL / ".vars"
++_VARS = Path.home() / ".cache/chadtree/vars"
+ RT_DIR = _VARS / "runtime"
+ RT_PY = RT_DIR / "Scripts" / "python.exe" if IS_WIN else RT_DIR / "bin" / "python3"
+ SESSION_DIR = _VARS / "sessions"

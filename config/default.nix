@@ -9,6 +9,8 @@
     ripgrep
     pandoc
     jdk
+    gawk
+    nix
   ];
   opts = let
     tab_amount = 2;

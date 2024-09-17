@@ -5,6 +5,10 @@
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     older-pkgs.url = "github:NixOS/nixpkgs/68c9ed8bbed9dfce253cc91560bf9043297ef2fe";
+    nix-bundle = {
+      url = "github:ralismark/nix-appimage";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +28,7 @@
           inherit system;
           overlays = import ./overlays.nix {nixpkgs-bashls = older-pkgs;};
         };
+
         lspPackages = import ./config/lsps/lsp-packages.nix {inherit pkgs;};
         nixvim' = nixvim.legacyPackages.${system};
         nvim' = nixvim'.makeNixvimWithModule {
@@ -41,6 +46,9 @@
               wrapProgram $out/bin/nvim \
                 --suffix PATH : ${pkgs.lib.makeBinPath lspPackages}
             '';
+          };
+          nvim-appimage = inputs.nix-bundle.lib.${system}.mkAppImage {
+            program = "${nvim}/bin/nvim";
           };
         };
       }

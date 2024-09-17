@@ -4,7 +4,7 @@
     ./nix/nix-develop.nix
     ./nix/telescope.nix
     ./nix/coq.nix
-    ./nix/chadtree.nix
+    ./nix/chadtree
     ./nix/treesitter.nix
     ./nix/barbar.nix
     ./nix/nvim-colorizer.nix
