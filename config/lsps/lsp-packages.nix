@@ -14,7 +14,8 @@ with pkgs; [
   nixfmt-rfc-style
   black # Python formatter
   isort # Python import sorter
-  go_1_21 # Go formatter
+  go # Go formatter
+  gopls
   nodePackages_latest.bash-language-server
   yaml-language-server
   vscode-langservers-extracted
