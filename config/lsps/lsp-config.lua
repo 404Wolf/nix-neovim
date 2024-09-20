@@ -34,7 +34,6 @@ setup_server("lua_ls", {
 	end,
 	settings = { Lua = {} },
 })
-setup_server("rust_analyzer")
 
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 -- https://github.com/hrsh7th/cmp-nvim-lsp/issues/42#issuecomment-1283825572
