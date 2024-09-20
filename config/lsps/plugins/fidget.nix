@@ -54,16 +54,6 @@
           ''
             function (msg) return msg.title end
           ''; # How to format a progress annotation
-        #formatGroupName =
-        #  # lua
-        #  ''
-        #    function (group) return toString (group) end
-        #  ''; # How to format a progress notification group's name
-        overrides = {
-          rust_analyzer = {
-            name = "rust-analyzer";
-          };
-        }; # Override options from the default notification config
       };
     };
     notification = {
