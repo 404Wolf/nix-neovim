@@ -1,22 +1,24 @@
 {
   plugins.conform-nvim = {
     enable = true;
-    formattersByFt = {
-      javascript = ["prettierd" "prettier" {stop_after_first = true;}];
-      typescript = ["prettierd" "prettier" {stop_after_first = true;}];
-      typst = ["typstfmt"];
-      lua = ["stylua"];
-      python = ["black" "isort"];
-      css = ["prettierd"];
-      json = ["prettierd"];
-      yaml = ["prettierd"];
-      nix = ["nix fmt" "alejandra" {stop_after_first = true;}];
-      go = ["goimports" "gofmt"];
-      bash = ["beautysh"];
-      sh = ["beautysh"];
-      rust = ["rustfmt"];
-      tex = ["latexindent"];
-      c = ["clang-format"];
+    settings = {
+      formattersByFt = {
+        javascript = ["prettierd" "prettier" {stop_after_first = true;}];
+        typescript = ["prettierd" "prettier" {stop_after_first = true;}];
+        typst = ["typstfmt"];
+        lua = ["stylua"];
+        python = ["black" "isort"];
+        css = ["prettierd"];
+        json = ["prettierd"];
+        yaml = ["prettierd"];
+        nix = ["nix fmt" "alejandra" {stop_after_first = true;}];
+        go = ["goimports" "gofmt"];
+        bash = ["beautysh"];
+        sh = ["beautysh"];
+        rust = ["rustfmt"];
+        tex = ["latexindent"];
+        c = ["clang-format"];
+      };
     };
   };
   keymaps = [

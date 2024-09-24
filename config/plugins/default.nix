@@ -1,44 +1,37 @@
 {pkgs, ...}: {
   imports = [
-    ./nix/indent-blankline.nix
-    ./nix/nix-develop.nix
-    ./nix/telescope.nix
-    ./nix/coq.nix
-    ./nix/chadtree
-    ./nix/treesitter.nix
-    ./nix/barbar.nix
-    ./nix/nvim-colorizer.nix
-    ./nix/conform.nix
-    ./nix/autopairs.nix
-    ./nix/virt-column.nix
-    ./nix/auto-save.nix
-    ./nix/gitsigns.nix
-    ./nix/copilot-lua.nix
-    ./nix/dap.nix
-    ./nix/comment.nix
-    ./nix/fugitive.nix
-    ./nix/dressing.nix
-    ./nix/ts-autotag.nix
-    ./nix/marks.nix
     ./nix/alpha.nix
+    ./nix/auto-save.nix
+    ./nix/autopairs.nix
+    ./nix/barbar.nix
+    ./nix/chadtree
+    ./nix/comment.nix
+    ./nix/conform.nix
+    ./nix/copilot-lua.nix
+    ./nix/coq.nix
+    ./nix/dap.nix
+    ./nix/dev-icons.nix
+    ./nix/dressing.nix
+    ./nix/fugitive.nix
+    ./nix/gitsigns.nix
+    ./nix/indent-blankline.nix
+    ./nix/marks.nix
+    ./nix/nix-develop.nix
+    ./nix/nvim-colorizer.nix
+    ./nix/telescope.nix
+    ./nix/treesitter.nix
+    ./nix/ts-autotag.nix
+    ./nix/virt-column.nix
   ];
   luaLoader.enable = true;
-  plugins = {
-    # Dashboard
-    alpha = {
-      enable = true;
-      theme = "dashboard";
-      iconsEnabled = true;
-    };
-  };
   extraPlugins = [
     pkgs.vimPlugins.nvim-jdtls
     pkgs.vimPlugins.onedarkpro-nvim
     pkgs.vimPlugins.actions-preview-nvim
     pkgs.vimPlugins.lualine-nvim
-    pkgs.vimPlugins.nvim-lspimport
     pkgs.vimPlugins.copilot-status
     pkgs.vimPlugins.telescope-git-file-history
+    # pkgs.vimPlugins.nvim-lspimport
   ];
   extraConfigLuaPost = ''
     ${toString (builtins.map (f: "${builtins.readFile f}\n") [
