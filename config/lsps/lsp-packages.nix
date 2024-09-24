@@ -16,10 +16,11 @@ with pkgs; [
   isort # Python import sorter
   go # Go formatter
   gopls
+  delve
+  gosimports
   nodePackages_latest.bash-language-server
   yaml-language-server
   vscode-langservers-extracted
-  gosimports
   typescript
   beautysh
   rustc
