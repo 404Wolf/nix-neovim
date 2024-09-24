@@ -24,19 +24,21 @@
     ./nix/virt-column.nix
   ];
   luaLoader.enable = true;
-  extraPlugins = [
-    pkgs.vimPlugins.nvim-jdtls
-    pkgs.vimPlugins.onedarkpro-nvim
-    pkgs.vimPlugins.actions-preview-nvim
-    pkgs.vimPlugins.lualine-nvim
-    pkgs.vimPlugins.copilot-status
-    pkgs.vimPlugins.telescope-git-file-history
-    # pkgs.vimPlugins.nvim-lspimport
+  extraPlugins = with pkgs.vimPlugins; [
+    nvim-jdtls
+    onedarkpro-nvim
+    actions-preview-nvim
+    lualine-nvim
+    copilot-status
+    telescope-git-file-history
+    nvim-dap-go
+    nvim-lspimport
   ];
   extraConfigLuaPost = ''
     ${toString (builtins.map (f: "${builtins.readFile f}\n") [
       ./lua/actions-preview.lua
       ./lua/lualine.lua
     ])}
+    require("dap-go").setup()
   '';
 }
