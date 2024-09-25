@@ -36,6 +36,15 @@
           module = ./config;
         };
       in {
+        devShells = {
+          default = pkgs.mkShell {
+            packages = with pkgs; [
+              (
+                python3.withPackages (pyPkgs: with pyPkgs; [pytest])
+              )
+            ];
+          };
+        };
         packages = rec {
           default = nvim;
           nvim = pkgs.symlinkJoin {
