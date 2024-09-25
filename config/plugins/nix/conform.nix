@@ -2,7 +2,7 @@
   plugins.conform-nvim = {
     enable = true;
     settings = {
-      formattersByFt = {
+      formatters_by_ft = {
         javascript = ["prettierd" "prettier" {stop_after_first = true;}];
         typescript = ["prettierd" "prettier" {stop_after_first = true;}];
         typst = ["typstfmt"];

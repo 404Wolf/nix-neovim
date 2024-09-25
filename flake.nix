@@ -1,10 +1,10 @@
 {
-  description = "Wolf's Neovim Configuration";
+     description = "Wolf's Neovim Configuration";
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    older-pkgs.url = "github:NixOS/nixpkgs/68c9ed8bbed9dfce253cc91560bf9043297ef2fe";
+    nixpkgs-old.url = "github:NixOS/nixpkgs/68c9ed8bbed9dfce253cc91560bf9043297ef2fe";
     nix-bundle = {
       url = "github:ralismark/nix-appimage";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,10 +23,10 @@
   } @ inputs:
     flake-utils.lib.eachDefaultSystem (
       system: let
-        older-pkgs = import inputs.older-pkgs {inherit system;};
+        nixpkgs-old = import inputs.nixpkgs-old {inherit system;};
         pkgs = import nixpkgs {
           inherit system;
-          overlays = import ./overlays.nix {nixpkgs-bashls = older-pkgs;};
+          overlays = import ./overlays.nix {inherit nixpkgs-old;};
         };
 
         lspPackages = import ./config/lsps/lsp-packages.nix {inherit pkgs;};

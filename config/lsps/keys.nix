@@ -29,7 +29,7 @@
       action = "workspace_symbol";
       desc = "Workspace Symbol";
     };
-    "gra" = {
+    gra = {
       action = "code_action";
       desc = "Rename";
     };

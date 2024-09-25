@@ -1,11 +1,11 @@
-{nixpkgs-bashls}: [
+{nixpkgs-old}: [
   (final: prev: let
     pkgs = prev;
   in {
     nodePackages_latest =
       pkgs.nodePackages_latest
       // {
-        bash-language-server = nixpkgs-bashls.nodePackages_latest.bash-language-server;
+        bash-language-server = nixpkgs-old.nodePackages_latest.bash-language-server;
       };
     vimPlugins =
       prev.vimPlugins
