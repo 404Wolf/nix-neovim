@@ -9,7 +9,10 @@
     # lua
     ''
       chadtree_settings = {
-        view = { width = 28 },
+        view = {
+          width = 28,
+          open_direction = "right",
+        },
       }
       vim.api.nvim_set_var("chadtree_settings", chadtree_settings)
 

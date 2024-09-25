@@ -1,5 +1,5 @@
 {
-     description = "Wolf's Neovim Configuration";
+  description = "Wolf's Neovim Configuration";
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
