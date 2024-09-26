@@ -37,6 +37,5 @@
       ./lua/actions-preview.lua
       ./lua/lualine.lua
     ])}
-    require("dap-go").setup()
   '';
 }
