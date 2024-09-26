@@ -14,4 +14,24 @@
     neotest-python
     neotest-go
   ];
+
+  keymaps = [
+    {
+      key = "<Leader>tnr";
+      action = "require'neotest'.run()";
+      mode = "n";
+      options = {
+        noremap = true;
+      };
+    }
+
+    {
+      key = "<Leader>tnd";
+      action = "require'neotest'.run.run({strategy = 'dap'})";
+      mode = "n";
+      options = {
+        noremap = true;
+      };
+    }
+  ];
 }
