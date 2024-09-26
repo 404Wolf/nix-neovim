@@ -34,7 +34,7 @@
     }
     {
       key = "<Leader>tnd";
-      action = "require'neotest'.run.run({strategy = 'dap'})";
+      action = ":lua require'neotest'.run.run({strategy = 'dap'})<CR>";
       mode = "n";
       options = {
         noremap = true;
@@ -42,7 +42,7 @@
     }
     {
       key = "<C-p>";
-      action = "require'dapui'.toggle()";
+      action = ":lua require'dapui'.toggle()<CR>";
       mode = "n";
       options = {
         noremap = true;
