@@ -9,14 +9,12 @@
     ./nix/conform.nix
     ./nix/copilot-lua.nix
     ./nix/coq.nix
-    ./nix/dap.nix
     ./nix/dev-icons.nix
     ./nix/dressing.nix
     ./nix/fugitive.nix
     ./nix/gitsigns.nix
     ./nix/indent-blankline.nix
     ./nix/marks.nix
-    ./nix/neotest.nix
     ./nix/nix-develop.nix
     ./nix/nvim-colorizer.nix
     ./nix/telescope.nix
@@ -32,7 +30,6 @@
     lualine-nvim
     copilot-status
     telescope-git-file-history
-    nvim-dap-go
     nvim-lspimport
   ];
   extraConfigLuaPost = ''
