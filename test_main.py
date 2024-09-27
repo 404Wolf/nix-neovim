@@ -9,6 +9,12 @@ def test_main2():
 
 
 test_main()
+test_main()
+test_main()
+test_main()
+test_main()
+test_main()
+test_main()
 test_main2()
 
 

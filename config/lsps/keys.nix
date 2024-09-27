@@ -1,23 +1,11 @@
 {
   silent = true;
   lspBuf = {
-    gd = {
-      action = "definition";
-      desc = "Goto Definition";
-    };
-    gr = {
-      action = "references";
-      desc = "Goto References";
-    };
-    gD = {
-      action = "declaration";
-      desc = "Goto Declaration";
-    };
-    gI = {
+    gi = {
       action = "implementation";
       desc = "Goto Implementation";
     };
-    gT = {
+    gt = {
       action = "type_definition";
       desc = "Type Definition";
     };

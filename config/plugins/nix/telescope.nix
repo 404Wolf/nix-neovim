@@ -2,12 +2,8 @@
   plugins.telescope = {
     enable = true;
     extensions = {
-      file-browser = {
-        enable = true;
-      };
-      fzf-native = {
-        enable = true;
-      };
+      file-browser = {enable = true;};
+      fzf-native = {enable = true;};
     };
     settings = {
       defaults = {
@@ -32,6 +28,24 @@
           desc = "Grep (root dir)";
         };
       };
+      "<leader>fci" = {
+        action = "lsp_incoming_calls";
+        options = {
+          desc = "View all incoming calls for the symbol hovered";
+        };
+      };
+      "<leader>fr" = {
+        action = "lsp_references";
+        options = {
+          desc = "View references to the hovered symbol";
+        };
+      };
+      "<leader>fo" = {
+        action = "lsp_document_symbols";
+        options = {
+          desc = "View references to the hovered symbol";
+        };
+      };
       "<leader>fd" = {
         action = "diagnostics";
         options = {
@@ -48,12 +62,6 @@
         action = "buffers";
         options = {
           desc = "+buffer";
-        };
-      };
-      "<leader>fr" = {
-        action = "live_grep";
-        options = {
-          desc = "Find text";
         };
       };
       "<leader>fR" = {
@@ -100,6 +108,13 @@
       action = "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>";
       options = {
         desc = "File browser";
+      };
+    }
+    {
+      key = "<a-o>";
+      action = ":Telescope lsp_workspace_symbols query=";
+      options = {
+        desc = "View references to the hovered symbol";
       };
     }
   ];
