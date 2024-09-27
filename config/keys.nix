@@ -103,7 +103,7 @@
 
     {
       mode = "n";
-      key = "<c-;>";
+      key = "<a-;>";
       action = ":.s/$/;/<cr>";
       options = {desc = "add semicolon at end of line";};
     }

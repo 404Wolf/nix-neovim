@@ -10,7 +10,7 @@
           jump_next = "]]";
           accept = "<CR>";
           refresh = "gr";
-          open = "<M-CR>";
+          open = "<A-CR>";
         };
         layout = {
           position = "bottom"; # | top | left | right
@@ -57,4 +57,12 @@
         end,
       });
     '';
+
+  keymaps = [
+    {
+      mode = "n";
+      key = "<A-CR>";
+      action = ":Copilot panel <CR>";
+    }
+  ];
 }

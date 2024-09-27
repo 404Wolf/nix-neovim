@@ -53,8 +53,8 @@
     (mkKeymap "<F6>" "require'dap'.step_over()")
     (mkKeymap "<F4>" "require'dap'.step_out()")
     (mkKeymap "<Leader>dbb" "require'dap'.toggle_breakpoint()")
+    (mkKeymap "<F9>" "require'dap'.toggle_breakpoint()")
     (mkKeymap "<Leader>dlp" "require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))")
     (mkKeymap "<Leader>dr" "require'dap'.repl.open()")
-    (mkKeymap "<Leader>dl" "require'dap'.run_last()")
   ];
 }

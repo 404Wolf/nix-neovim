@@ -13,6 +13,13 @@ lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_c
 -- Function to setup servers with coq capabilities and autostart
 local function setup_server(name, config)
 	config = config or { autostart = true }
+	config = vim.tbl_extend("force", config, {
+		on_attach = function(client, bufnr)
+			if client.server_capabilities.inlayHintProvider then
+				vim.lsp.inlay_hint.enable(true)
+			end
+		end,
+	})
 	lspconfig[name].setup(config)
 end
 

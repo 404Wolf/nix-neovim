@@ -1,5 +1,7 @@
 def test_main():
+    foo = "bar"
     print("Hello from test_main")
+    print(foo)
 
 
 def test_main2():
@@ -8,3 +10,6 @@ def test_main2():
 
 test_main()
 test_main2()
+
+
+print("barbar")
