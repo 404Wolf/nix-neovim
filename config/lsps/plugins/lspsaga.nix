@@ -113,15 +113,5 @@
         silent = true;
       };
     }
-
-    {
-      mode = "n";
-      key = "<C-m>";
-      action = "<cmd>Lspsaga outline<CR>";
-      options = {
-        desc = "Show LSP symbol tree";
-        silent = true;
-      };
-    }
   ];
 }

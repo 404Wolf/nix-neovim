@@ -33,11 +33,13 @@
     copilot-status
     telescope-git-file-history
     nvim-lspimport
+    aerial-nvim
   ];
   extraConfigLuaPost = ''
     ${toString (builtins.map (f: "${builtins.readFile f}\n") [
       ./lua/actions-preview.lua
       ./lua/lualine.lua
+      ./lua/aerial.lua
     ])}
   '';
 }
