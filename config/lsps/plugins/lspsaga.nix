@@ -47,11 +47,11 @@
       };
     };
     outline = {
-      autoClose = true;
+      autoClose = false;
       autoPreview = true;
-      closeAfterJump = true;
+      closeAfterJump = false;
       layout = "normal"; # normal or float
-      winPosition = "right"; # left or right
+      winPosition = "left"; # left or right
       keys = {
         jump = "e";
         quit = "q";
@@ -110,6 +110,16 @@
       action = "<cmd>Lspsaga diagnostic_jump_prev<CR>";
       options = {
         desc = "Previous Diagnostic";
+        silent = true;
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<C-m>";
+      action = "<cmd>Lspsaga outline<CR>";
+      options = {
+        desc = "Show LSP symbol tree";
         silent = true;
       };
     }
