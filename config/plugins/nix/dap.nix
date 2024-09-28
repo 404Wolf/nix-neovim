@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   plugins.dap = {
     enable = true;
     signs = {
@@ -19,6 +19,9 @@
       dap-python = {
         enable = true;
       };
+      dap-go = {
+        enable = true;
+      };
       dap-ui = {
         enable = true;
         floating.mappings = {
@@ -29,6 +32,7 @@
         enable = true;
       };
     };
+
     configurations = {
       java = [
         {
@@ -41,6 +45,16 @@
       ];
     };
   };
+  extraConfigLua =
+    #lua
+    ''
+      local dap = require('dap')
+      dap.adapters.lldb = {
+        type = 'executable',
+        command = '${pkgs.lldb}/bin/lldb',
+        name = 'lldb'
+      }
+    '';
   keymaps = let
     mkKeymap = key: action: {
       inherit key;
