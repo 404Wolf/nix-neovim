@@ -30,13 +30,12 @@
       name = "Launch";
       type = "gdb";
       request = "launch";
-      program.__raw =
+      program =
         #lua
         ''
           function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-          end
-        '';
+          end'';
       cwd = "\${workspaceFolder}";
       stopAtBeginningOfMainSubprogram = false;
     }
@@ -44,13 +43,12 @@
       name = "Select and attach to process";
       type = "gdb";
       request = "attach";
-      program.__raw =
+      program =
         #lua
         ''
           function()
              return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-          end
-        '';
+          end'';
       pid =
         #lua
         ''
@@ -59,6 +57,7 @@
              return require("dap.utils").pick_process({ filter = name })
           end
         '';
+      cwd = "\${workspaceFolder}";
     }
     {
       name = "Attach to gdbserver :1234";
