@@ -18,7 +18,7 @@
   ];
 
   keymaps = let
-    prefix = "<C-;>";
+    prefix = "<A-;>";
   in [
     # Run Test at Cursor with debug
     {
