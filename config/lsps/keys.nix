@@ -1,6 +1,14 @@
 {
   silent = true;
   lspBuf = {
+    gd = {
+      action = "definition";
+      desc = "Goto Definition";
+    };
+    gr = {
+      action = "references";
+      desc = "Goto References";
+    };
     gi = {
       action = "implementation";
       desc = "Goto Implementation";
