@@ -101,13 +101,6 @@
       options = {desc = "open fold at cursor";};
     }
 
-    # {
-    #   mode = "n";
-    #   key = "<a-;>";
-    #   action = ":.s/$/;/<cr>";
-    #   options = {desc = "add semicolon at end of line";};
-    # }
-
     {
       mode = "n";
       key = "<leader><leader>";

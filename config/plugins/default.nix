@@ -9,7 +9,7 @@
     ./nix/conform.nix
     ./nix/copilot-lua.nix
     ./nix/coq.nix
-    ./nix/dap.nix
+    ./nix/dap
     ./nix/dev-icons.nix
     ./nix/dressing.nix
     ./nix/fugitive.nix

@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   plugins.dap = {
     enable = true;
+
     signs = {
       dapBreakpoint = {
         text = "●";
@@ -15,6 +16,7 @@
         texthl = "DapLogPoint";
       };
     };
+
     extensions = {
       dap-python = {
         enable = true;
@@ -33,28 +35,16 @@
       };
     };
 
-    configurations = {
-      java = [
-        {
-          type = "java";
-          request = "launch";
-          name = "Debug (Attach) - Remote";
-          hostName = "127.0.0.1";
-          port = 5005;
-        }
-      ];
+    adapters = {
+      executables = {
+        lldb = {
+          command = "${pkgs.lldb_17}/bin/lldb-vscode";
+        };
+      };
     };
+
+    configurations = import ./configurations.nix;
   };
-  extraConfigLua =
-    #lua
-    ''
-      local dap = require('dap')
-      dap.adapters.lldb = {
-        type = 'executable',
-        command = '${pkgs.lldb}/bin/lldb',
-        name = 'lldb'
-      }
-    '';
   keymaps = let
     mkKeymap = key: action: {
       inherit key;
