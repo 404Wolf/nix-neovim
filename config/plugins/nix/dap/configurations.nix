@@ -1,4 +1,16 @@
-{
+let
+  inputs = {
+    program.__raw = ''
+      function()
+        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      end'';
+    args.__raw = ''
+      function()
+        return vim.split(vim.fn.input('Arguments: '), " ")
+      end
+    '';
+  };
+in {
   java = [
     {
       type = "java";
@@ -9,21 +21,14 @@
     }
   ];
   cpp = [
-    {
-      name = "Launch";
-      type = "lldb";
-      request = "launch";
-      program.__raw =
-        #lua
-        ''
-          function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-          end
-        '';
-      cwd = "\${workspaceFolder}";
-      stopOnEntry = false;
-      args = {};
-    }
+    ({
+        name = "Launch";
+        type = "lldb";
+        request = "launch";
+        cwd = "\${workspaceFolder}";
+        stopOnEntry = false;
+      }
+      // inputs)
   ];
   c = [
     {
@@ -39,39 +44,28 @@
       cwd = "\${workspaceFolder}";
       stopAtBeginningOfMainSubprogram = false;
     }
-    {
-      name = "Select and attach to process";
-      type = "gdb";
-      request = "attach";
-      program =
-        #lua
-        ''
-          function()
-             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-          end'';
-      pid =
-        #lua
-        ''
-          function()
-             local name = vim.fn.input('Executable name (filter): ')
-             return require("dap.utils").pick_process({ filter = name })
-          end
-        '';
-      cwd = "\${workspaceFolder}";
-    }
-    {
-      name = "Attach to gdbserver :1234";
-      type = "gdb";
-      request = "attach";
-      target = "localhost:1234";
-      program.__raw =
-        #lua
-        ''
-          function()
-             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-          end
-        '';
-      cwd = "\${workspaceFolder}";
-    }
+    ({
+        name = "Select and attach to process";
+        type = "gdb";
+        request = "attach";
+        pid =
+          #lua
+          ''
+            function()
+               local name = vim.fn.input('Executable name (filter): ')
+               return require("dap.utils").pick_process({ filter = name })
+            end
+          '';
+        cwd = "\${workspaceFolder}";
+      }
+      // inputs)
+    ({
+        name = "Attach to gdbserver :1234";
+        type = "gdb";
+        request = "attach";
+        target = "localhost:1234";
+        cwd = "\${workspaceFolder}";
+      }
+      // inputs)
   ];
 }
