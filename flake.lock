@@ -199,6 +199,22 @@
         "type": "github"
       }
     },
+    "jsdebug": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1728085064,
+        "narHash": "sha256-c2m36y2Ba4vubCDj5hMOUUzaVcNvsmw4GPZNLGugZBk=",
+        "owner": "microsoft",
+        "repo": "vscode-js-debug",
+        "rev": "e620efe1841742402a332b532df2aa2ec95361f6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "microsoft",
+        "repo": "vscode-js-debug",
+        "type": "github"
+      }
+    },
     "nix-bundle": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -327,6 +343,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "jsdebug": "jsdebug",
         "nix-bundle": "nix-bundle",
         "nixpkgs": "nixpkgs",
         "nixpkgs-old": "nixpkgs-old",

@@ -6,7 +6,7 @@
     {
       mode = "n";
       key = "<leader>ts";
-      action = ":lua toggleSpellCheck()<CR>";
+      action = ":lua ToggleSpellCheck()<cr>";
     }
 
     {
@@ -248,24 +248,17 @@
         desc = "open chadtree";
       };
     }
+
+    {
+      mode = "n";
+      key = "<leader>tl";
+      action = ":lua ToggleLineNumbering()<cr>";
+    }
   ];
   extraConfigLua =
     # lua
     ''
-      function toggleRelativeLineNumber()
-        if vim.wo.relativenumber then
-          vim.wo.relativenumber = false
-        else
-          vim.wo.relativenumber = true
-          vim.wo.number = false
-        end
-      end
-
-      function toggleWrap()
-        vim.wo.wrap = not vim.wo.wrap
-      end
-
-      function toggleSpellCheck()
+      function ToggleSpellCheck()
         if vim.opt.spell:get() then
           vim.opt.spell = false
           print("Spell checking disabled")
@@ -273,6 +266,15 @@
           vim.opt.spell = true
           vim.opt.spelllang = "en_us"
           print("Spell checking enabled")
+        end
+      end
+
+      function ToggleLineNumbering()
+        if (vim.wo.relativenumber) then
+          vim.wo.relativenumber = false
+        else
+          vim.wo.relativenumber = true
+          vim.wo.number = false
         end
       end
     '';

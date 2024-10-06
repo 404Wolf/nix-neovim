@@ -2,6 +2,14 @@
   (final: prev: let
     pkgs = prev;
   in {
+    lua51Packages = prev.lua51Packages (lfinal: lprev: {
+      dkjson = lprev.dkjson.overrideAttrs (oldAttrs: {
+        src = prev.fetchurl {
+          url = "https://github.com/LuaDist/dkjson/archive/2.8.tar.gz";
+          sha256 = "sha256-JOjNO+uRwchh63uz+8m9QYu/+a1KpdBHGBYlgjajFTI=";
+        };
+      });
+    });
     nodePackages_latest =
       pkgs.nodePackages_latest
       // {

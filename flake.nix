@@ -13,6 +13,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    jsdebug = {
+      url = "github:microsoft/vscode-js-debug";
+      flake = false;
+    };
   };
   outputs = {
     self,
@@ -33,6 +37,7 @@
         nixvim' = nixvim.legacyPackages.${system};
         nvim' = nixvim'.makeNixvimWithModule {
           inherit pkgs;
+          extraSpecialArgs = inputs;
           module = ./config;
         };
       in {
