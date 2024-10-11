@@ -40,6 +40,12 @@
           desc = "View references to the hovered symbol";
         };
       };
+      "<leader>fi" = {
+        action = "lsp_implementations";
+        options = {
+          desc = "View implementations for the hovered symbol";
+        };
+      };
       "<leader>fo" = {
         action = "lsp_document_symbols";
         options = {
