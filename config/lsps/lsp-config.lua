@@ -68,3 +68,6 @@ setup_server("html")
 setup_server("taplo")
 setup_server("jdtls")
 setup_server("gopls")
+setup_server("denols", {
+	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+})

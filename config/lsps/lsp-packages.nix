@@ -5,6 +5,7 @@ with pkgs; [
   luajitPackages.lua-lsp
   llvmPackages_19.clang-tools
   lua-language-server
+  deno
   pyright
   typst-lsp
   typstfmt
