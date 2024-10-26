@@ -13,18 +13,13 @@ lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_c
 -- Function to setup servers with coq capabilities and autostart
 local function setup_server(name, config)
 	config = config or { autostart = true }
-	config = vim.tbl_extend("force", config, {
-		on_attach = function(client, bufnr)
-			if client.server_capabilities.inlayHintProvider then
-				vim.lsp.inlay_hint.enable(true)
-			end
-		end,
-	})
 	lspconfig[name].setup(config)
 end
 
 -- Setup servers
-setup_server("pyright")
+setup_server("pyright", {
+	vim.lsp.inlay_hint.enable(true),
+})
 setup_server("lua_ls", {
 	autostart = true,
 	on_init = function(client)
@@ -70,14 +65,18 @@ setup_server("texlab")
 setup_server("html")
 setup_server("taplo")
 setup_server("jdtls")
-setup_server("gopls")
+setup_server("gopls", {
+	vim.lsp.inlay_hint.enable(true),
+})
 setup_server("denols", {
 	on_attach = on_attach,
 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+	vim.lsp.inlay_hint.enable(true),
 })
 
 setup_server("ts_ls", {
 	on_attach = on_attach,
 	root_dir = lspconfig.util.root_pattern("package.json"),
 	single_file_support = false,
+	vim.lsp.inlay_hint.enable(true),
 })
