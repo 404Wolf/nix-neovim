@@ -5,7 +5,6 @@ with pkgs; [
   luajitPackages.lua-lsp
   llvmPackages_19.clang-tools
   lua-language-server
-  deno
   pyright
   typst-lsp
   typstfmt
@@ -22,7 +21,6 @@ with pkgs; [
   nodePackages_latest.bash-language-server
   yaml-language-server
   vscode-langservers-extracted
-  typescript
   beautysh
   rustc
   cargo

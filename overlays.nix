@@ -2,6 +2,7 @@
   (final: prev: let
     pkgs = prev;
   in {
+    utillinux = prev.util-linux;
     lua51Packages = prev.lua51Packages (lfinal: lprev: {
       dkjson = lprev.dkjson.overrideAttrs (oldAttrs: {
         src = prev.fetchurl {

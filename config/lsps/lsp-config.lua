@@ -57,6 +57,9 @@ setup_server("yamlls", {
 		yaml = {
 			schemas = {
 				["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+				["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
+				["https://json.schemastore.org/prettierrc.json"] = "/.prettierrc",
+				["https://json.schemastore.org/kubernetes.json"] = "/*.k8s.yaml",
 			},
 		},
 	},
@@ -69,5 +72,12 @@ setup_server("taplo")
 setup_server("jdtls")
 setup_server("gopls")
 setup_server("denols", {
+	on_attach = on_attach,
 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+})
+
+setup_server("ts_ls", {
+	on_attach = on_attach,
+	root_dir = lspconfig.util.root_pattern("package.json"),
+	single_file_support = false,
 })
