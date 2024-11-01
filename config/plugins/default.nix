@@ -23,6 +23,7 @@
     ./nix/treesitter.nix
     ./nix/ts-autotag.nix
     ./nix/virt-column.nix
+    ./nix/firenvim.nix
   ];
   luaLoader.enable = true;
   extraPlugins = with pkgs.vimPlugins; [
