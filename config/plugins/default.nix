@@ -9,21 +9,21 @@
     ./nix/conform.nix
     ./nix/copilot-lua.nix
     ./nix/coq.nix
-    ./nix/dap
     ./nix/dev-icons.nix
     ./nix/dressing.nix
     ./nix/fugitive.nix
     ./nix/gitsigns.nix
     ./nix/indent-blankline.nix
     ./nix/marks.nix
-    ./nix/neotest.nix
     ./nix/nix-develop.nix
     ./nix/nvim-colorizer.nix
     ./nix/telescope.nix
     ./nix/treesitter.nix
     ./nix/ts-autotag.nix
+    ./nix/typescript-tools.nix
     ./nix/virt-column.nix
     ./nix/firenvim.nix
+    ./nix/matchup.nix
   ];
   luaLoader.enable = true;
   extraPlugins = with pkgs.vimPlugins; [
