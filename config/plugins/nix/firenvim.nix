@@ -1,3 +1,0 @@
-{
-  plugins.firenvim = {enable = true;};
-}

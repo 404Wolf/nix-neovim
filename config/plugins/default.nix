@@ -10,18 +10,15 @@
     ./nix/coq.nix
     ./nix/dev-icons.nix
     ./nix/dressing.nix
-    ./nix/fugitive.nix
     ./nix/gitsigns.nix
     ./nix/indent-blankline.nix
     ./nix/marks.nix
-    ./nix/nix-develop.nix
     ./nix/nvim-colorizer.nix
     ./nix/telescope.nix
     ./nix/treesitter.nix
     ./nix/ts-autotag.nix
     ./nix/typescript-tools.nix
     ./nix/virt-column.nix
-    ./nix/firenvim.nix
     ./nix/matchup.nix
   ];
   luaLoader.enable = true;
