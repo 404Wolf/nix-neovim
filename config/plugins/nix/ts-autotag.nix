@@ -1,5 +1,5 @@
 {
   plugins.ts-autotag = {
-    enable = false;
+    enable = true;
   };
 }

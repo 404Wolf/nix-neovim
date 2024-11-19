@@ -2,7 +2,6 @@
   imports = [
     ./nix/alpha.nix
     ./nix/auto-save.nix
-    ./nix/autopairs.nix
     ./nix/barbar.nix
     ./nix/chadtree
     ./nix/comment.nix
