@@ -60,7 +60,7 @@ setup_server("yamlls", {
 	},
 })
 setup_server("ltex")
-setup_server("tinymist", { single_file_support = true })
+setup_server("tinymist", { single_file_support = true, offset_encoding = "utf-8" })
 setup_server("texlab")
 setup_server("html")
 setup_server("taplo")

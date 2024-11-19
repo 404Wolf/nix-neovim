@@ -6,7 +6,6 @@ with pkgs; [
   llvmPackages_19.clang-tools
   lua-language-server
   pyright
-  typstyle
   tinymist
   luarocks-nix
   stylua
