@@ -7,9 +7,9 @@ with pkgs; [
   lua-language-server
   pyright
   tinymist
+  typstyle
   luarocks-nix
   stylua
-  prettierd
   nixfmt-rfc-style
   black # Python formatter
   isort # Python import sorter

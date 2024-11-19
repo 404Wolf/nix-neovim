@@ -3,10 +3,11 @@
     enable = true;
     settings = {
       formatters_by_ft = {
-        javascript = ["prettierd" "prettier" {stop_after_first = true;}];
-        typescript = ["prettierd" "prettier" {stop_after_first = true;}];
+        javascript = ["prettierd"];
+        typescript = ["prettierd"];
         lua = ["stylua"];
         python = ["black" "isort"];
+        typst = ["typstyle"];
         css = ["prettierd"];
         json = ["prettierd"];
         yaml = ["prettierd"];
