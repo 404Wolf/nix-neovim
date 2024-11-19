@@ -60,7 +60,7 @@ setup_server("yamlls", {
 	},
 })
 setup_server("ltex")
-setup_server("typst_lsp")
+setup_server("tinymist", { single_file_support = true })
 setup_server("texlab")
 setup_server("html")
 setup_server("taplo")

@@ -6,8 +6,8 @@ with pkgs; [
   llvmPackages_19.clang-tools
   lua-language-server
   pyright
-  typst-lsp
-  typstfmt
+  typstyle
+  tinymist
   luarocks-nix
   stylua
   prettierd

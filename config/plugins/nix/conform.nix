@@ -5,7 +5,6 @@
       formatters_by_ft = {
         javascript = ["prettierd" "prettier" {stop_after_first = true;}];
         typescript = ["prettierd" "prettier" {stop_after_first = true;}];
-        typst = ["typstfmt"];
         lua = ["stylua"];
         python = ["black" "isort"];
         css = ["prettierd"];
