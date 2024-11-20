@@ -13,6 +13,7 @@
     ./nix/gitsigns.nix
     ./nix/indent-blankline.nix
     ./nix/marks.nix
+    ./nix/nvim-autopairs.nix
     ./nix/nvim-colorizer.nix
     ./nix/telescope.nix
     ./nix/treesitter.nix
