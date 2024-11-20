@@ -4,7 +4,7 @@
     settings = {
       formatters_by_ft = {
         javascript = ["prettierd"];
-        typescript = ["prettierd"];
+        typescript = ["deno_fmt"];
         lua = ["stylua"];
         python = ["black" "isort"];
         typst = ["typstyle"];
@@ -18,6 +18,7 @@
         rust = ["rustfmt"];
         tex = ["latexindent"];
         c = ["clang-format"];
+        nu = ["nufmt"];
       };
     };
   };
@@ -30,10 +31,15 @@
     }
   ];
   extraConfigLua =
-    /*
-    lua
-    */
+    # lua
     ''
+      conform = require("conform")
+
+      conform.formatters.shfmt = {
+        prepend_args = { "--filetypes", "vue", "cc", "scss", "html", "yaml", "markdown", "markdownmdx", "graphql", "handlebars" },
+        -- The base args are { "-filename", "$FILENAME" } so the final args will be { "-i", "2", "-filename", "$FILENAME" }
+      }
+
       vim.api.nvim_create_user_command("Format", function(args)
         local range = nil
         if args.count ~= -1 then
@@ -45,11 +51,5 @@
         end
         require("conform").format({ async = true, lsp_format = "fallback", range = range })
       end, { range = true })
-
-      require("conform").formatters.shfmt = {
-        prepend_args = { "--filetypes", "vue", "cc", "scss", "html", "yaml", "markdown", "markdownmdx", "graphql", "handlebars" },
-        -- The base args are { "-filename", "$FILENAME" } so the final args will be
-        -- { "-i", "2", "-filename", "$FILENAME" }
-      }
     '';
 }
