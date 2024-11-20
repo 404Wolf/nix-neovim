@@ -53,6 +53,7 @@ setup_server("yamlls", {
 			schemas = {
 				["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
 				["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
+				["https://json.schemastore.org/docker-compose.json"] = "/*compose",
 				["https://json.schemastore.org/prettierrc.json"] = "/.prettierrc",
 				["https://json.schemastore.org/kubernetes.json"] = "/*.k8s.yaml",
 			},
@@ -73,10 +74,4 @@ setup_server("denols", {
 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 	vim.lsp.inlay_hint.enable(true),
 })
-
--- setup_server("ts_ls", {
--- 	on_attach = on_attach,
--- 	root_dir = lspconfig.util.root_pattern("package.json"),
--- 	single_file_support = truet,
--- 	vim.lsp.inlay_hint.enable(true),
--- })
+setup_server("nushell")
