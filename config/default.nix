@@ -34,6 +34,6 @@
       vim.opt.listchars:append("space:⋅")
       vim.opt.foldmethod=indent
       vim.opt.foldenable = false
-      vim.g.neovide_scale_factor = 1.0
+      vim.g.neovide_scale_factor = 0.9
     '';
 }
