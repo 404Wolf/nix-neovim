@@ -69,9 +69,15 @@ setup_server("jdtls")
 setup_server("gopls", {
 	vim.lsp.inlay_hint.enable(true),
 })
+setup_server("nushell")
+
 setup_server("denols", {
 	on_attach = on_attach,
 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 	vim.lsp.inlay_hint.enable(true),
 })
-setup_server("nushell")
+require("typescript-tools").setup({
+	on_attach = on_attach,
+	root_dir = lspconfig.util.root_pattern("package.json"),
+	single_file_support = false,
+})

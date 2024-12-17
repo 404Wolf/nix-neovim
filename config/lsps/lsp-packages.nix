@@ -27,7 +27,6 @@ in
     luarocks-nix
     nil
     nodePackages.prettier
-    nodePackages.typescript-language-server
     nodePackages_latest.bash-language-server
     nufmt
     nushell
@@ -45,7 +44,6 @@ in
     texlab
     tinymist
     tree-sitter
-    typescript
     typstyle
     vscode-langservers-extracted
     yaml-language-server
