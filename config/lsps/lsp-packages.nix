@@ -44,6 +44,7 @@ in
     texlab
     tinymist
     tree-sitter
+    typescript
     typstyle
     vscode-langservers-extracted
     yaml-language-server
