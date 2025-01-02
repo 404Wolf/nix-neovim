@@ -5,22 +5,9 @@
   (final: prev: let
     pkgs = prev;
   in {
-    nodejs_22 = prev.bun.overrideAttrs (oldAttrs: {
-      pname = "bun";
-      postInstall =
-        (oldAttrs.postInstall or "")
-        + ''
-          mv $out/bin/bun $out/bin/node
-        '';
-    });
     vimPlugins =
       prev.vimPlugins
       // {
-        chadtree = pkgs.vimUtils.buildVimPlugin {
-          pname = "chadtree";
-          version = "2024-05-10";
-          src = repos.chadtree;
-        };
         nvim-lspimport = pkgs.vimUtils.buildVimPlugin {
           name = "nvim-lspimport";
           version = "2024-07-23";

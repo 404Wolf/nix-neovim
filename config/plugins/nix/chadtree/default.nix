@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   plugins.chadtree = {
     enable = true;
-    package = pkgs.vimPlugins.chadtree.overrideAttrs (prev: {
-      patches = [./think-in-venv.patch];
-    });
+    # package = pkgs.vimPlugins.chadtree.overrideAttrs (prev: {
+    #   patches = [./think-in-venv.patch];
+    # });
   };
   extraConfigLua =
     # lua
