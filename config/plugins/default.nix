@@ -42,6 +42,7 @@
     copilot-status
     telescope-git-file-history
     nvim-lspimport
+    fugitive
   ];
 
   extraConfigLuaPost = ''
