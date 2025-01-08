@@ -36,7 +36,6 @@ setup_server("lua_ls", {
 	end,
 	settings = { Lua = {} },
 })
-setup_server("rust_analyzer")
 
 require("lspconfig").nil_ls.setup({
 	autostart = true,

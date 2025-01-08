@@ -23,8 +23,8 @@
       value = {enable = true;};
     }) [
       "typescript-tools"
-      "ts-autotag"
       "rustaceanvim"
+      "ts-autotag"
       "web-devicons"
       "indent-blankline"
       "nvim-autopairs"

@@ -36,6 +36,7 @@ in
     prettierd
     pyright
     rust-analyzer
+    cargo
     rustc
     rustfmt
     stylua
