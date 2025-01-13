@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       formatters_by_ft = {
-        nix = ["alejandra" "nix fmt"];
+        nix = ["alejandra" "nix_fmt"];
         javascript = ["prettierd"];
         typescript = ["deno_fmt"];
         lua = ["stylua"];
@@ -19,6 +19,7 @@
         tex = ["latexindent"];
         c = ["clang-format"];
         nu = ["nufmt"];
+        racket = ["racket_fmt"];
       };
     };
   };
@@ -36,8 +37,19 @@
       conform = require("conform")
 
       conform.formatters.shfmt = {
-        prepend_args = { "--filetypes", "vue", "cc", "scss", "html", "yaml", "markdown", "markdownmdx", "graphql", "handlebars" },
         -- The base args are { "-filename", "$FILENAME" } so the final args will be { "-i", "2", "-filename", "$FILENAME" }
+        prepend_args = { "--filetypes", "vue", "cc", "scss", "html", "yaml", "markdown", "markdownmdx", "graphql", "handlebars" },
+      }
+
+      conform.formatters.racket_fmt = {
+        command = "raco",
+        args = { "fmt" },
+        -- stdin = false,
+      }
+
+      conform.formatters.nix_fmt = {
+        command = "nix",
+        args = { "fmt" },
       }
 
       vim.api.nvim_create_user_command("Format", function(args)
