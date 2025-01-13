@@ -22,8 +22,9 @@
       postConfig =
         # lua
         ''
-          -- I want to do the lsp config with lua because I want my lsps to be treated as fallbacks.
-          -- I want the packages to be provided by a append to the path.
+          -- I want to do the lsp config with lua because I want my lsps to be
+          -- treated as fallbacks. I want the packages to be provided by a
+          -- append to the path.
           ${builtins.readFile ./lsp-config.lua}
 
           local _border = "rounded"

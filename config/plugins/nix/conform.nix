@@ -3,6 +3,7 @@
     enable = true;
     settings = {
       formatters_by_ft = {
+        nix = ["alejandra" "nix fmt"];
         javascript = ["prettierd"];
         typescript = ["deno_fmt"];
         lua = ["stylua"];
@@ -11,7 +12,6 @@
         css = ["prettierd"];
         json = ["prettierd"];
         yaml = ["prettierd"];
-        nix = ["nix fmt" "alejandra" {stop_after_first = true;}];
         go = ["goimports" "gofmt"];
         bash = ["beautysh"];
         sh = ["beautysh"];

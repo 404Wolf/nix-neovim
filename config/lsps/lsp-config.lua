@@ -1,7 +1,7 @@
 local lspconfig = require("lspconfig")
 local coq = require("coq")
 
--- Extend default configuration
+-- Extend default configuration to add coq completions
 lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
 	capabilities = vim.tbl_deep_extend(
 		"force",
@@ -17,9 +17,6 @@ local function setup_server(name, config)
 end
 
 -- Setup servers
-setup_server("pyright", {
-	vim.lsp.inlay_hint.enable(true),
-})
 setup_server("lua_ls", {
 	autostart = true,
 	on_init = function(client)
@@ -37,15 +34,13 @@ setup_server("lua_ls", {
 	settings = { Lua = {} },
 })
 
-require("lspconfig").nil_ls.setup({
+setup_server("nil_ls", {
 	autostart = true,
 	settings = {
 		["nil"] = { testSetting = 42 },
 	},
 })
 
-setup_server("bashls")
-setup_server("jsonls")
 setup_server("yamlls", {
 	settings = {
 		yaml = {
@@ -59,24 +54,49 @@ setup_server("yamlls", {
 		},
 	},
 })
-setup_server("ltex")
+
 setup_server("tinymist", { single_file_support = true, offset_encoding = "utf-8" })
+
+setup_server("pyright", {
+	vim.lsp.inlay_hint.enable(true),
+})
+
+setup_server("gopls", {
+	vim.lsp.inlay_hint.enable(true),
+})
+
+setup_server("ltex")
 setup_server("texlab")
 setup_server("html")
 setup_server("taplo")
 setup_server("jdtls")
-setup_server("gopls", {
-	vim.lsp.inlay_hint.enable(true),
-})
 setup_server("nushell")
+setup_server("bashls")
+setup_server("jsonls")
+setup_server("jsonls")
+setup_server("racket_langserver")
 
+-- Treat deno and typescript tools a bit specially because they're both for
+-- typescript code
 setup_server("denols", {
-	on_attach = on_attach,
 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 	vim.lsp.inlay_hint.enable(true),
+	init_options = {
+		lint = true,
+		unstable = true,
+		suggest = {
+			imports = {
+				hosts = {
+					["https://deno.land"] = true,
+					["jsr"] = true,
+				},
+			},
+		},
+	},
+	single_file_support = true,
 })
-require("typescript-tools").setup({
-	on_attach = on_attach,
+
+require("typescript-tools").setup({ -- plugin, not an LSP
 	root_dir = lspconfig.util.root_pattern("package.json"),
 	single_file_support = false,
 })

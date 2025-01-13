@@ -61,7 +61,7 @@
           };
         };
 
-        lspPackages = import ./config/lsps/lsp-packages.nix {inherit pkgs;};
+        lspPackages = import ./config/lsps/packages.nix {inherit pkgs;};
         nixvim' = nixvim.legacyPackages.${system};
         nvim' = nixvim'.makeNixvimWithModule {
           inherit pkgs;
@@ -72,9 +72,11 @@
         devShells = {
           default = pkgs.mkShell {
             packages = with pkgs; [
-              (
-                python3.withPackages (pyPkgs: with pyPkgs; [pytest])
-              )
+              (python3.withPackages (pyPkgs: with pyPkgs; [pytest]))
+              lua-language-server
+              luajitPackages.lua-lsp
+              luarocks-nix
+              stylua
             ];
           };
         };

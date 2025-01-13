@@ -2,11 +2,18 @@
 
 ## My [NixVim](https://github.com/nix-community/nixvim) Neovim configuration
 
-This is my [revious neovim configuration](https://github.com/404Wolf/neovim) for the most part, but ported to NixVim. Nix vim is a project that lets you write your neovim configuration in the `nix` programming langauge, providing really nice abstractions and giving you better guarentees of purity for things like `lua` nix packages with arbitrary dependencies (I'm looking at you guys, CHADtree and COQNvim!). I will eventually add options and make this better to use as a module. That's the next step.
+This is my [revious neovim configuration](https://github.com/404Wolf/neovim)
+for the most part, but ported to NixVim. Nix vim is a project that lets you
+write your neovim configuration in the `nix` programming langauge, providing
+really nice abstractions and giving you better guarentees of purity for things
+like `lua` nix packages with arbitrary dependencies (I'm looking at you guys,
+CHADtree and COQNvim!). I will eventually add options and make this better to
+use as a module. That's the next step.
 
 # Keybinds
 
-I like keybinds. I really like keybinds. There are so many keybinds. Okay here are the important ones.
+I like keybinds. I really like keybinds. There are so many keybinds. Okay here
+are the important ones.
 
 Note that my leader key is space. Space is objectively the best leader key.
 
