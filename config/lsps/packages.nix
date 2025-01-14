@@ -13,11 +13,12 @@ with pkgs; [
   vscode-langservers-extracted
   yaml-language-server
   ltex-ls
+  typescript
+  pyright
 ]
 # Packages needed for LSP configurations, by language:
 # texlab
 # tree-sitter
-# typescript
 # typstyle
 # black
 # cargo
@@ -31,7 +32,6 @@ with pkgs; [
 # lua-language-server
 # luajitPackages.lua-lsp
 # luarocks-nix
-# pyright
 # rust-analyzer
 # cargo
 # rustc
