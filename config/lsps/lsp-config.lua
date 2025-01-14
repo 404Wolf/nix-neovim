@@ -93,7 +93,6 @@ setup_server("denols", {
 			},
 		},
 	},
-	single_file_support = true,
 })
 
 require("typescript-tools").setup({ -- plugin, not an LSP
