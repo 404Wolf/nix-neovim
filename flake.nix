@@ -88,7 +88,7 @@
             buildInputs = [pkgs.makeWrapper];
             postBuild = ''
               wrapProgram $out/bin/nvim \
-                --suffix PATH : ${pkgs.lib.makeBinPath lspPackages}
+                --prefix PATH : ${pkgs.lib.makeBinPath lspPackages}
             '';
           };
           nvim-appimage = inputs.nix-bundle.lib.${system}.mkAppImage {
