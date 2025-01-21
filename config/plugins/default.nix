@@ -3,7 +3,7 @@
     ./nix/alpha.nix
     ./nix/auto-save.nix
     ./nix/barbar.nix
-    ./nix/chadtree
+    ./nix/chadtree.nix
     ./nix/comment.nix
     ./nix/conform.nix
     ./nix/copilot-lua.nix
@@ -28,7 +28,7 @@
       "web-devicons"
       "indent-blankline"
       "nvim-autopairs"
-      "nvim-colorizer"
+      "colorizer"
       "tmux-navigator"
     ]);
 

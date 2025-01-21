@@ -1,7 +1,7 @@
 {
   plugins.copilot-lua = {
     enable = true;
-    extraOptions = {
+    settings = {
       panel = {
         enabled = true;
         auto_refresh = false;

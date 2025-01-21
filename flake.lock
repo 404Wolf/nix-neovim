@@ -255,22 +255,6 @@
         "type": "github"
       }
     },
-    "jsdebug": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1736364771,
-        "narHash": "sha256-+qwTikn+zJvmaQxkyFLVNaJ/ZbCZacYw4MaOWQtgiyI=",
-        "owner": "microsoft",
-        "repo": "vscode-js-debug",
-        "rev": "299d29f2a7b535115305068dfb531a7f37a05e44",
-        "type": "github"
-      },
-      "original": {
-        "owner": "microsoft",
-        "repo": "vscode-js-debug",
-        "type": "github"
-      }
-    },
     "nix-bundle": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -418,7 +402,6 @@
         "chadtree": "chadtree",
         "copilot-status": "copilot-status",
         "flake-utils": "flake-utils",
-        "jsdebug": "jsdebug",
         "nix-bundle": "nix-bundle",
         "nixpkgs": "nixpkgs",
         "nixpkgs-old": "nixpkgs-old",

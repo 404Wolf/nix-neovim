@@ -13,10 +13,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    jsdebug = {
-      url = "github:microsoft/vscode-js-debug";
-      flake = false;
-    };
 
     chadtree = {
       url = "github:ms-jpq/chadtree";
@@ -88,6 +84,7 @@
             buildInputs = [pkgs.makeWrapper];
             postBuild = ''
               wrapProgram $out/bin/nvim \
+                --prefix LS_COLORS : ${pkgs.lib.escapeShellArg (builtins.readFile ./ls_colors)} \
                 --prefix PATH : ${pkgs.lib.makeBinPath lspPackages}
             '';
           };
