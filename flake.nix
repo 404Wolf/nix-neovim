@@ -84,7 +84,7 @@
             buildInputs = [pkgs.makeWrapper];
             postBuild = ''
               wrapProgram $out/bin/nvim \
-                --prefix LS_COLORS : ${pkgs.lib.escapeShellArg (builtins.readFile ./ls_colors)} \
+                --suffix LS_COLORS : ${pkgs.lib.escapeShellArg (builtins.readFile ./ls_colors)} \
                 --prefix PATH : ${pkgs.lib.makeBinPath lspPackages}
             '';
           };
