@@ -17,6 +17,7 @@ with pkgs; [
   pyright
 ]
 # Packages needed for LSP configurations, by language:
+#
 # texlab
 # tree-sitter
 # typstyle

@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       formatters_by_ft = {
-        nix = ["alejandra" "nix_fmt"];
+        nix = ["alejandra"];
         javascript = ["prettierd"];
         typescript = ["deno_fmt"];
         lua = ["stylua"];
@@ -20,6 +20,9 @@
         c = ["clang-format"];
         nu = ["nufmt"];
         racket = ["racket_fmt"];
+      };
+      default_format_opts = {
+        lsp_format = "prefer";
       };
     };
   };

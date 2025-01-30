@@ -6,7 +6,7 @@
     ./plugins/lspsaga.nix
   ];
   plugins = {
-    # lsp-format = {enable = true;};
+    clangd-extensions.enable = true;
     lsp = {
       enable = true;
       keymaps = import ./keys.nix;
