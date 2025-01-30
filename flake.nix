@@ -13,11 +13,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    chadtree = {
-      url = "github:ms-jpq/chadtree";
-      flake = false;
-    };
     nvim-lspimport = {
       url = "github:stevanmilic/nvim-lspimport";
       flake = false;
@@ -28,6 +23,10 @@
     };
     telescope-git-file-history = {
       url = "github:isak102/telescope-git-file-history.nvim";
+      flake = false;
+    };
+    std2_ms-jpq = {
+      url = "github:ms-jpq/std2";
       flake = false;
     };
   };
@@ -45,10 +44,10 @@
           inherit system;
           overlays = import ./overlays.nix {
             inherit nixpkgs-old;
+            inherit (inputs) std2_ms-jpq;
             repos = {
               inherit
                 (inputs)
-                chadtree
                 nvim-lspimport
                 copilot-status
                 telescope-git-file-history

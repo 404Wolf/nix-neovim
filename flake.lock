@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "chadtree": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1737180799,
-        "narHash": "sha256-TQXKGxO5Ox+jnjbQpMHwt2dfkRfL7nXPglPd5SrPqd8=",
-        "owner": "ms-jpq",
-        "repo": "chadtree",
-        "rev": "88c567e195f828bdb3a256a902154e6e7c38c905",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ms-jpq",
-        "repo": "chadtree",
-        "type": "github"
-      }
-    },
     "copilot-status": {
       "flake": false,
       "locked": {
@@ -399,7 +383,6 @@
     },
     "root": {
       "inputs": {
-        "chadtree": "chadtree",
         "copilot-status": "copilot-status",
         "flake-utils": "flake-utils",
         "nix-bundle": "nix-bundle",
@@ -407,7 +390,24 @@
         "nixpkgs-old": "nixpkgs-old",
         "nixvim": "nixvim",
         "nvim-lspimport": "nvim-lspimport",
+        "std2_ms-jpq": "std2_ms-jpq",
         "telescope-git-file-history": "telescope-git-file-history"
+      }
+    },
+    "std2_ms-jpq": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1737376140,
+        "narHash": "sha256-Setty21ZMUAedN80ZwiMisQNiQmQR7E9khgVsExEHNc=",
+        "owner": "ms-jpq",
+        "repo": "std2",
+        "rev": "808a4ae1e050033a3863c35175894aa2a97320b2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ms-jpq",
+        "repo": "std2",
+        "type": "github"
       }
     },
     "systems": {
