@@ -50,11 +50,6 @@
         -- stdin = false,
       }
 
-      conform.formatters.nix_fmt = {
-        command = "nix",
-        args = { "fmt" },
-      }
-
       vim.api.nvim_create_user_command("Format", function(args)
         local range = nil
         if args.count ~= -1 then

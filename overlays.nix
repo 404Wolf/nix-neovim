@@ -3,9 +3,7 @@
   repos,
   std2_ms-jpq,
 }: [
-  (final: prev: let
-    pkgs = prev;
-  in {
+  (final: prev: {
     python312Packages = prev.python312Packages.override {
       overrides = pfinal: pprev: {
         std2 = pfinal.buildPythonPackage {
@@ -39,19 +37,19 @@
     in
       prev.vimPlugins
       // {
-        nvim-lspimport = pkgs.vimUtils.buildVimPlugin {
+        nvim-lspimport = prev.vimUtils.buildVimPlugin {
           name = "nvim-lspimport";
           version = "2024-07-23";
           src = repos.nvim-lspimport;
         };
 
-        copilot-status = pkgs.vimUtils.buildVimPlugin {
+        copilot-status = prev.vimUtils.buildVimPlugin {
           name = "copilot-status";
           version = "2024-07-23";
           src = repos.copilot-status;
         };
 
-        telescope-git-file-history = pkgs.vimUtils.buildVimPlugin {
+        telescope-git-file-history = prev.vimUtils.buildVimPlugin {
           name = "telescope-git-file-history";
           version = "2024-08-04";
           src = repos.telescope-git-file-history;
