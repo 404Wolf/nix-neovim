@@ -41,6 +41,7 @@
       system: let
         nixpkgs-old = import inputs.nixpkgs-old {inherit system;};
         pkgs = import nixpkgs {
+          config.allowBroken = true;
           inherit system;
           overlays = import ./overlays.nix {
             inherit nixpkgs-old;
@@ -69,7 +70,6 @@
             packages = with pkgs; [
               (python3.withPackages (pyPkgs: with pyPkgs; [pytest]))
               lua-language-server
-              luajitPackages.lua-lsp
               luarocks-nix
               stylua
             ];

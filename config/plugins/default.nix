@@ -30,6 +30,7 @@
       "nvim-autopairs"
       "colorizer"
       "tmux-navigator"
+      "firenvim"
     ]);
 
   luaLoader.enable = true;
