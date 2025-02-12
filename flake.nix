@@ -3,7 +3,7 @@
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs";
     nixpkgs-old.url = "github:NixOS/nixpkgs/68c9ed8bbed9dfce253cc91560bf9043297ef2fe";
     nix-bundle = {
       url = "github:ralismark/nix-appimage";
@@ -41,7 +41,6 @@
       system: let
         nixpkgs-old = import inputs.nixpkgs-old {inherit system;};
         pkgs = import nixpkgs {
-          config.allowBroken = true;
           inherit system;
           overlays = import ./overlays.nix {
             inherit nixpkgs-old;

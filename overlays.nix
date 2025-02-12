@@ -4,6 +4,8 @@
   std2_ms-jpq,
 }: [
   (final: prev: {
+    luajitPackages.neotest = null;
+
     python312Packages = prev.python312Packages.override {
       overrides = pfinal: pprev: {
         std2 = pfinal.buildPythonPackage {
