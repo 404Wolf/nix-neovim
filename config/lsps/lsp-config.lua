@@ -96,6 +96,8 @@ setup_server("denols", {
 })
 
 require("typescript-tools").setup({ -- plugin, not an LSP
-	root_dir = lspconfig.util.root_pattern("package.json"),
-	single_file_support = false,
+	settings = {
+		root_dir = lspconfig.util.root_pattern("package.json"),
+		single_file_support = false,
+	},
 })
