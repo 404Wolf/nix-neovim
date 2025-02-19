@@ -35,5 +35,6 @@
       vim.opt.foldmethod=indent
       vim.opt.foldenable = false
       vim.g.neovide_scale_factor = 0.9
+      vim.opt.exrc = true
     '';
 }
