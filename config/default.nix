@@ -36,5 +36,11 @@
       vim.opt.foldenable = false
       vim.g.neovide_scale_factor = 0.9
       vim.opt.exrc = true
+
+      vim.filetype.add({
+        pattern = {
+          ['deno:/https/esm%.town/.*'] = 'typescript',
+        }
+      })
     '';
 }
