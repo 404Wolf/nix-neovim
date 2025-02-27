@@ -8,4 +8,5 @@ with pkgs; [
   vscode-langservers-extracted
   yaml-language-server
   ltex-ls
+  nil
 ]

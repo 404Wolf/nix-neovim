@@ -22,7 +22,6 @@
       name = item;
       value = {enable = true;};
     }) [
-      "typescript-tools"
       "rustaceanvim"
       "ts-autotag"
       "web-devicons"

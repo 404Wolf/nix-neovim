@@ -76,28 +76,15 @@ setup_server("jsonls")
 setup_server("jsonls")
 setup_server("racket_langserver")
 
--- Treat deno and typescript tools a bit specially because they're both for
--- typescript code
 setup_server("denols", {
+	on_attach = on_attach,
 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 	vim.lsp.inlay_hint.enable(true),
-	init_options = {
-		lint = true,
-		unstable = true,
-		suggest = {
-			imports = {
-				hosts = {
-					["https://deno.land"] = true,
-					["jsr"] = true,
-				},
-			},
-		},
-	},
 })
 
-require("typescript-tools").setup({ -- plugin, not an LSP
-	settings = {
-		root_dir = lspconfig.util.root_pattern("package.json"),
-		single_file_support = false,
-	},
+setup_server("ts_ls", {
+	on_attach = on_attach,
+	root_dir = lspconfig.util.root_pattern("package.json"),
+	single_file_support = truet,
+	vim.lsp.inlay_hint.enable(true),
 })

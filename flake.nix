@@ -82,8 +82,8 @@
             buildInputs = [pkgs.makeWrapper];
             postBuild = ''
               wrapProgram $out/bin/nvim \
-                --suffix LS_COLORS : ${pkgs.lib.escapeShellArg (builtins.readFile ./ls_colors)} \
-                --prefix PATH : ${pkgs.lib.makeBinPath lspPackages}
+                --set LS_COLORS "${pkgs.lib.escapeShellArg (builtins.readFile ./ls_colors)}" \
+                --prefix PATH : "${pkgs.lib.makeBinPath lspPackages}"
             '';
           };
           nvim-appimage = inputs.nix-bundle.lib.${system}.mkAppImage {
