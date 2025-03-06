@@ -72,6 +72,12 @@ setup_server("lemminx", {
 		},
 	},
 })
+vim.filetype.add({
+	extension = {
+		xml = "xml",
+		ant = "xml",
+	},
+})
 
 setup_server("tinymist", { single_file_support = true, offset_encoding = "utf-8" })
 
