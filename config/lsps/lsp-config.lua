@@ -75,6 +75,7 @@ setup_server("bashls")
 setup_server("jsonls")
 setup_server("jsonls")
 setup_server("racket_langserver")
+setup_server("lemminx")
 
 setup_server("denols", {
 	on_attach = on_attach,

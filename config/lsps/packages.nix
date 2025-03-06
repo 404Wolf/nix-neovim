@@ -9,4 +9,5 @@ with pkgs; [
   yaml-language-server
   ltex-ls
   nil
+  lemminx
 ]

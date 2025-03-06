@@ -2,7 +2,6 @@
   imports = [
     ./plugins/fidget.nix
     ./plugins/lspkind.nix
-    ./plugins/clangd-extensions.nix
     ./plugins/lspsaga.nix
   ];
   plugins = {
