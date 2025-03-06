@@ -55,6 +55,24 @@ setup_server("yamlls", {
 	},
 })
 
+setup_server("lemminx", {
+	settings = {
+		xml = {
+			validation = {
+				enabled = true,
+				schema = true,
+			},
+			completion = {
+				autoCloseTags = true,
+			},
+			format = {
+				enabled = true,
+				splitAttributes = true,
+			},
+		},
+	},
+})
+
 setup_server("tinymist", { single_file_support = true, offset_encoding = "utf-8" })
 
 setup_server("pyright", {
