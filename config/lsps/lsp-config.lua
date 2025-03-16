@@ -100,6 +100,9 @@ setup_server("jsonls")
 setup_server("jsonls")
 setup_server("racket_langserver")
 setup_server("lemminx")
+setup_server("sourcekit", {
+	filetype = { "swift" },
+})
 
 setup_server("denols", {
 	on_attach = on_attach,
