@@ -5,15 +5,17 @@
       file-browser = {enable = true;};
       fzf-native = {enable = true;};
     };
-    settings = {
-      defaults = {
-        layout_config = {
-          horizontal = {
-            prompt_position = "top";
-          };
+    defaults = {
+      layout_strategy = "horizontal";
+      layout_config = {
+        horizontal = {
+          prompt_position = "top";
+          width = 0.9;
+          height = 0.6;
+          preview_width = 0.5;
         };
-        sorting_strategy = "ascending";
       };
+      sorting_strategy = "ascending";
     };
     keymaps = {
       "<leader>ff" = {
