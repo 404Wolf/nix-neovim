@@ -10,4 +10,5 @@ with pkgs; [
   ltex-ls
   nil
   lemminx
+  alejandra
 ]
