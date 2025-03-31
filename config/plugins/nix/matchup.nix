@@ -1,6 +1,6 @@
 {
   plugins.vim-matchup = {
-    enable = true;
+    enable = false;
     settings = {
       transmute_enabled = 1;
     };
