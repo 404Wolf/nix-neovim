@@ -1,7 +1,8 @@
 {
   plugins.vim-matchup = {
-    enable = false;
+    enable = true;
     settings = {
+      disable = ["haskell"];
       transmute_enabled = 1;
     };
   };
