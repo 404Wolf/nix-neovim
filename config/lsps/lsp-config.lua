@@ -116,3 +116,7 @@ setup_server("ts_ls", {
 	single_file_support = false,
 	vim.lsp.inlay_hint.enable(true),
 })
+
+setup_server("hls", {
+	filetypes = { "haskell", "lhaskell", "cabal" },
+})
