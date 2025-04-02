@@ -9,6 +9,7 @@
       codeAction = "💡"; # Can be any symbol you want 💡
     };
     hover = {
+      enable = true;
       openCmd = "!floorp"; # Choose your browser
       openLink = "gx";
     };
@@ -39,7 +40,6 @@
       enable = false;
     };
     rename = {
-      autoSave = true;
       keys = {
         exec = "<CR>";
         quit = ["<C-k>" "<Esc>"];
@@ -63,17 +63,8 @@
       scrollUp = "<C-b>";
     };
   };
-  keymaps = [
-    {
-      mode = "n";
-      key = "gD";
-      action = "<cmd>Lspsaga peek_type_definition<CR>";
-      options = {
-        desc = "Type Definition";
-        silent = true;
-      };
-    }
 
+  keymaps = [
     {
       mode = "n";
       key = "gnr";
@@ -86,7 +77,7 @@
 
     {
       mode = "n";
-      key = "<leader>cd";
+      key = "gld";
       action = "<cmd>Lspsaga show_line_diagnostics<CR>";
       options = {
         desc = "Line Diagnostics";
