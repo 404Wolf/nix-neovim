@@ -9,7 +9,6 @@
       codeAction = "💡"; # Can be any symbol you want 💡
     };
     hover = {
-      enable = true;
       openCmd = "!floorp"; # Choose your browser
       openLink = "gx";
     };
