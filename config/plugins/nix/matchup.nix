@@ -1,6 +1,6 @@
 {
   plugins.vim-matchup = {
-    enable = true;
+    enable = false;
     settings = {
       disable = ["haskell" "hs"];
       transmute_enabled = 1;
