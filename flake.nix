@@ -2,9 +2,11 @@
   description = "Wolf's Neovim Configuration";
 
   inputs = {
-    flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:nixos/nixpkgs";
-    nixpkgs-old.url = "github:NixOS/nixpkgs/68c9ed8bbed9dfce253cc91560bf9043297ef2fe";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-bundle = {
       url = "github:ralismark/nix-appimage";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,6 +15,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nvim-lspimport = {
       url = "github:stevanmilic/nvim-lspimport";
       flake = false;
@@ -39,11 +42,9 @@
   } @ inputs:
     flake-utils.lib.eachDefaultSystem (
       system: let
-        nixpkgs-old = import inputs.nixpkgs-old {inherit system;};
         pkgs = import nixpkgs {
           inherit system;
           overlays = import ./overlays.nix {
-            inherit nixpkgs-old;
             inherit (inputs) std2_ms-jpq;
             repos = {
               inherit

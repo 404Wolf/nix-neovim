@@ -1,5 +1,4 @@
 {
-  nixpkgs-old,
   repos,
   std2_ms-jpq,
 }: [
