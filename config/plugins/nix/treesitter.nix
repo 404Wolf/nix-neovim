@@ -3,7 +3,6 @@
     enable = true;
     nixvimInjections = true;
     folding = true;
-    gccPackage = null;
     grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
     settings = {
       highlight = {
