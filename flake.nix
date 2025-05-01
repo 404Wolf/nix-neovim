@@ -2,10 +2,9 @@
   description = "Wolf's Neovim Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils = {
       url = "github:numtide/flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-bundle = {
       url = "github:ralismark/nix-appimage";
@@ -15,7 +14,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nvim-lspimport = {
       url = "github:stevanmilic/nvim-lspimport";
       flake = false;
