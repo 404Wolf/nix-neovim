@@ -100,23 +100,54 @@ setup_server("jsonls")
 setup_server("jsonls")
 setup_server("racket_langserver")
 setup_server("lemminx")
-setup_server("sourcekit", {
-	filetype = { "swift" },
-})
+setup_server("sourcekit", { filetype = { "swift" } })
 
+local function is_deno_project()
+	return lspconfig.util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd()) ~= nil
+end
+
+-- Deno Language Server
 setup_server("denols", {
-	on_attach = on_attach,
 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-	vim.lsp.inlay_hint.enable(true),
+	settings = {
+		deno = {
+			enable = is_deno_project(),
+		},
+	},
+	on_attach = function(_, _)
+		vim.lsp.inlay_hint.enable(true)
+	end,
 })
 
-setup_server("ts_ls", {
-	on_attach = on_attach,
-	root_dir = lspconfig.util.root_pattern("package.json"),
-	single_file_support = false,
-	vim.lsp.inlay_hint.enable(true),
+-- For TypeScript/JavaScript, use typescript-tools instead of tsserver
+setup_server("typescript-tools", {
+	on_attach = function(_, _)
+		vim.lsp.inlay_hint.enable(true)
+	end,
+	opts = {
+		root_dir = lspconfig.util.root_pattern("package.json"),
+	},
+	settings = {
+		-- TypeScript tools specific settings
+		separate_diagnostic_server = true,
+		publish_diagnostic_on = "insert_leave",
+		tsserver_file_preferences = {
+			includeInlayParameterNameHints = "all",
+			includeCompletionsForModuleExports = true,
+		},
+	},
 })
 
+-- Eslint Language Server
+setup_server("eslint", {
+	settings = {
+		eslint = { enable = not is_deno_project() },
+	},
+})
+
+-- Haskell Language Server
 setup_server("hls", {
 	filetypes = { "haskell", "lhaskell", "cabal" },
 })
+
+setup_server("biome")

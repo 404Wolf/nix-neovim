@@ -29,6 +29,7 @@
       "nvim-autopairs"
       "colorizer"
       "tmux-navigator"
+      "typescript-tools"
     ]);
 
   luaLoader.enable = true;
