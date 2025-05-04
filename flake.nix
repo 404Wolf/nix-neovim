@@ -82,7 +82,10 @@
             postBuild = ''
               wrapProgram $out/bin/nvim \
                 --set LS_COLORS "${pkgs.lib.escapeShellArg (builtins.readFile ./ls_colors)}" \
-                --prefix PATH : "${pkgs.lib.makeBinPath lspPackages}"
+                --prefix PATH : "${pkgs.lib.makeBinPath lspPackages}" \
+                --run 'export ANTHROPIC_API_KEY=$(cat /run/secrets/api-keys/anthropic)' \
+                --run 'export OPENAI_API_KEY=$(cat /run/secrets/api-keys/anthropic)' \
+
             '';
           };
           nvim-appimage = inputs.nix-bundle.lib.${system}.mkAppImage {

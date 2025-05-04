@@ -5,6 +5,7 @@
     ./nix/barbar.nix
     ./nix/chadtree.nix
     ./nix/comment.nix
+    ./nix/codecompanion.nix
     ./nix/conform.nix
     ./nix/copilot-lua.nix
     ./nix/coq.nix
