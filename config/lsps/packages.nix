@@ -11,4 +11,6 @@ with pkgs; [
   nil
   lemminx
   alejandra
+  deno
+  pyright
 ]

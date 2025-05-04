@@ -6,6 +6,7 @@
   ];
   plugins = {
     clangd-extensions.enable = true;
+
     lsp = {
       enable = true;
       keymaps = import ./keys.nix;
@@ -18,12 +19,13 @@
             require("coq").lsp_ensure_capabilities({})
           )
         '';
+
       postConfig =
         # lua
         ''
-          -- I want to do the lsp config with lua because I want my lsps to be
-          -- treated as fallbacks. I want the packages to be provided by a
-          -- append to the path.
+          -- I do the lsp config with lua because I want my lsps to be treated
+          -- as fallbacks. I want the packages to be provided by a append to the
+          -- path.
           ${builtins.readFile ./lsp-config.lua}
 
           local _border = "rounded"

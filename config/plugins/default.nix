@@ -29,7 +29,6 @@
       "nvim-autopairs"
       "colorizer"
       "tmux-navigator"
-      "typescript-tools"
     ]);
 
   luaLoader.enable = true;
@@ -43,6 +42,7 @@
     telescope-git-file-history
     nvim-lspimport
     fugitive
+    typescript-tools-nvim
   ];
 
   extraConfigLuaPost = ''
