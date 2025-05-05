@@ -26,13 +26,4 @@
       };
     };
   };
-
-  keymaps = [
-    {
-      mode = ["n" "v"];
-      key = "<C-i>";
-      action = ":CodeCompanion <CR>";
-      options = {desc = "Run CodeCompanion";};
-    }
-  ];
 }
