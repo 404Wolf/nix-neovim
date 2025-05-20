@@ -122,89 +122,50 @@ vim.filetype.add({
 	},
 })
 
-local function first_config_type(startpath)
-	local path = lspconfig.util.path
-	startpath = lspconfig.util.strip_archive_subpath(startpath)
+-- Helper function to search for Deno or Node project markers
+local function detect_project_type(startpath)
+	local deno_root = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")(startpath)
+	local node_root = require("lspconfig.util").root_pattern("package.json", "tsconfig.json")(startpath)
 
-	-- Track which config type we found
-	local found_type = nil
-
-	-- Function that checks for config files at a specific directory
-	local check_dir = function(dir)
-		-- Check for Deno config first
-		if vim.loop.fs_stat(path.join(dir, "deno.json")) or vim.loop.fs_stat(path.join(dir, "deno.jsonc")) then
-			found_type = "deno"
-			return dir
-		end
-
-		-- Then check for TypeScript config
-		if vim.loop.fs_stat(path.join(dir, "package.json")) or vim.loop.fs_stat(path.join(dir, "tsconfig.json")) then
-			found_type = "typescript"
-			return dir
-		end
-
-		-- No config found at this level
-		return nil
+	-- Return the project type and root directory
+	if deno_root then
+		return "deno", deno_root
+	elseif node_root then
+		return "node", node_root
+	else
+		return nil, nil
 	end
-
-	-- Search up the directory tree
-	local dir = lspconfig.util.search_ancestors(startpath, check_dir)
-
-	-- Return both the directory and the type of config found
-	return dir, found_type
 end
 
--- Create specific root detectors for each LSP
-local function deno_root_dir(startpath)
-	local dir, config_type = first_config_type(startpath)
-	return config_type == "deno" and dir or nil
-end
-
-local function typescript_root_dir(startpath)
-	local dir, config_type = first_config_type(startpath)
-	return config_type == "typescript" and dir or nil
-end
-
+-- Setup Deno LSP
 lspconfig.denols.setup({
 	root_dir = function(startpath)
-		local dir = vim.fn.fnamemodify(startpath, ":h")
-
-    -- It is a deno project if there's a deno.json in the cwd
-		if vim.loop.fs_stat(dir .. "/deno.json") or vim.loop.fs_stat(dir .. "/deno.jsonc") then
-			return dir
+		local project_type, root = detect_project_type(startpath)
+		if project_type == "deno" then
+			return root
 		end
-
-		-- Not a Deno project
 		return nil
 	end,
 	single_file_support = false,
-	on_attach = function(_, _)
-		vim.lsp.inlay_hint.enable(true)
+	on_attach = function(_, bufnr)
+		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 	end,
 })
 
+-- Setup TypeScript Tools
 require("typescript-tools").setup({
-	on_attach = function(_, _)
-		vim.lsp.inlay_hint.enable(true)
+	on_attach = function(_, bufnr)
+		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 	end,
 	root_dir = function(startpath)
-		local dir = vim.fn.fnamemodify(startpath, ":h")
-
-    -- It is a deno project if there's a deno.json in the cwd
-		if vim.loop.fs_stat(dir .. "/deno.json") or vim.loop.fs_stat(dir .. "/deno.jsonc") then
-			return nil
+		local project_type, root = detect_project_type(startpath)
+		if project_type == "node" then
+			return root
 		end
-
-		if vim.loop.fs_stat(dir .. "/package.json") or vim.loop.fs_stat(dir .. "/tsconfig.json") then
-			return dir
-		end
-
 		return nil
 	end,
 	single_file_support = false,
 	settings = {
-		root_dir = lspconfig.util.root_pattern({ "package.json", "tsconfig.json" }),
-		single_file_support = false,
 		separate_diagnostic_server = true,
 		publish_diagnostic_on = "insert_leave",
 		tsserver_file_preferences = {
