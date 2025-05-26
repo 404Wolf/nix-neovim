@@ -43,7 +43,6 @@
     telescope-git-file-history
     nvim-lspimport
     fugitive
-    typescript-tools-nvim
   ];
 
   extraConfigLuaPost = ''

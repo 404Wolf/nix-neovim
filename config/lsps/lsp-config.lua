@@ -108,6 +108,15 @@ local servers = {
 	},
 
 	biome = {},
+
+	denols = {
+		root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+	},
+
+	ts_ls = {
+		root_dir = lspconfig.util.root_pattern("package.json"),
+		single_file_support = false,
+	},
 }
 
 for server, config in pairs(servers) do
@@ -119,58 +128,5 @@ vim.filetype.add({
 	extension = {
 		xml = "xml",
 		ant = "xml",
-	},
-})
-
--- Helper function to search for Deno or Node project markers
-local function detect_project_type(startpath)
-	local deno_root = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")(startpath)
-	local node_root = require("lspconfig.util").root_pattern("package.json", "tsconfig.json")(startpath)
-
-	-- Return the project type and root directory
-	if deno_root then
-		return "deno", deno_root
-	elseif node_root then
-		return "node", node_root
-	else
-		return nil, nil
-	end
-end
-
--- Setup Deno LSP
-lspconfig.denols.setup({
-	root_dir = function(startpath)
-		local project_type, root = detect_project_type(startpath)
-		if project_type == "deno" then
-			return root
-		end
-		return nil
-	end,
-	single_file_support = false,
-	on_attach = function(_, bufnr)
-		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-	end,
-})
-
--- Setup TypeScript Tools
-require("typescript-tools").setup({
-	on_attach = function(_, bufnr)
-		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-	end,
-	root_dir = function(startpath)
-		local project_type, root = detect_project_type(startpath)
-		if project_type == "node" then
-			return root
-		end
-		return nil
-	end,
-	single_file_support = false,
-	settings = {
-		separate_diagnostic_server = true,
-		publish_diagnostic_on = "insert_leave",
-		tsserver_file_preferences = {
-			includeInlayParameterNameHints = "all",
-			includeCompletionsForModuleExports = true,
-		},
 	},
 })
