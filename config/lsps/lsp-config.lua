@@ -110,12 +110,15 @@ local servers = {
 	biome = {},
 
 	denols = {
-		root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+		root_markers = { "deno.json", "deno.jsonc" },
+		workspace_required = true,
+		single_file_support = false,
 	},
 
 	ts_ls = {
-		root_dir = lspconfig.util.root_pattern("package.json"),
 		single_file_support = false,
+		root_markers = { "package.json", "tsconfig.json", "jsconfig.json" },
+		workspace_required = true,
 	},
 }
 
