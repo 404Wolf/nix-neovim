@@ -12,5 +12,6 @@ with pkgs; [
   lemminx
   alejandra
   deno
+  vtsls
   pyright
 ]
