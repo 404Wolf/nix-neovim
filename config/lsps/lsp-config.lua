@@ -110,7 +110,13 @@ local servers = {
 	biome = {},
 
 	denols = {
-		root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+		root_dir = function()
+			if vim.uv.fs_stat(vim.uv.cwd() .. "/deno.json") then
+				return vim.uv.cwd()
+			else
+				return lspconfig.util.root_pattern("deno.json", "deno.jsonc")(vim.uv.cwd())
+			end
+		end,
 		init_options = {
 			lint = true,
 			unstable = true,
@@ -122,16 +128,17 @@ local servers = {
 	},
 
 	vtsls = {
-		root_dir = function(filename)
-			local denoRootDir = lspconfig.util.root_pattern("deno.json", "deno.json")(filename)
-			if denoRootDir then
-				return nil
+		root_dir = function()
+			if vim.uv.fs_stat(vim.uv.cwd() .. "/package.json") then
+				return vim.uv.cwd()
+			else
+				return lspconfig.util.root_pattern("package.json", "tsconfig.json")(vim.uv.cwd())
 			end
-
-			return lspconfig.util.root_pattern("package.json")(filename)
 		end,
 		single_file_support = false,
 	},
+
+	rust_analyzer = {},
 }
 
 for server, config in pairs(servers) do
