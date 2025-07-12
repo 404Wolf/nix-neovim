@@ -40,11 +40,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1749398372,
-        "narHash": "sha256-tYBdgS56eXYaWVW3fsnPQ/nFlgWi/Z2Ymhyu21zVM98=",
+        "lastModified": 1751413152,
+        "narHash": "sha256-Tyw1RjYEsp5scoigs1384gIg6e0GoBVjms4aXFfRssQ=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "9305fe4e5c2a6fcf5ba6a3ff155720fbe4076569",
+        "rev": "77826244401ea9de6e3bac47c2db46005e1f30b5",
         "type": "github"
       },
       "original": {
@@ -159,16 +159,15 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1751011381,
-        "narHash": "sha256-krGXKxvkBhnrSC/kGBmg5MyupUUT5R6IBCLEzx9jhMM=",
+        "lastModified": 1752285312,
+        "narHash": "sha256-hQnAAMmX8NMWLrkXBVprDkaURFy80nJxMhh3rIgdn7M=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "30e2e2857ba47844aa71991daa6ed1fc678bcbb7",
+        "rev": "aad4666edb2deea6443a0bb88bc0b2e087d5f3c5",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -183,11 +182,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1751144320,
-        "narHash": "sha256-KJsKiGfkfXFB23V26NQ1p+UPsexI6NKtivnrwSlWWdQ=",
+        "lastModified": 1752262661,
+        "narHash": "sha256-jPDiaHsKZeFH+zoxRIW0t1T/R+S8cYM3/9YUfMMjUEA=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "ceb52aece5d571b37096945c2815604195a04eb4",
+        "rev": "658980fb247e2f10fa692bae372ac21389a67c6c",
         "type": "github"
       },
       "original": {
@@ -243,24 +242,7 @@
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "nvim-lspimport": "nvim-lspimport",
-        "std2_ms-jpq": "std2_ms-jpq",
         "telescope-git-file-history": "telescope-git-file-history"
-      }
-    },
-    "std2_ms-jpq": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1738816063,
-        "narHash": "sha256-n+6FxVQjzYhjQMJr+i+D8uSiVjI7HFkegxy5keVjKGs=",
-        "owner": "ms-jpq",
-        "repo": "std2",
-        "rev": "47fda91f8c8db9d5a8faa6f55d739d74afffc440",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ms-jpq",
-        "repo": "std2",
-        "type": "github"
       }
     },
     "systems": {

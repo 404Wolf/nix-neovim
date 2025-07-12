@@ -2,7 +2,7 @@
   description = "Wolf's Neovim Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs";
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
@@ -26,10 +26,6 @@
       url = "github:isak102/telescope-git-file-history.nvim";
       flake = false;
     };
-    std2_ms-jpq = {
-      url = "github:ms-jpq/std2";
-      flake = false;
-    };
   };
   outputs = {
     self,
@@ -43,7 +39,6 @@
         pkgs = import nixpkgs {
           inherit system;
           overlays = import ./overlays.nix {
-            inherit (inputs) std2_ms-jpq;
             repos = {
               inherit
                 (inputs)

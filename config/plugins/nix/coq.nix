@@ -14,9 +14,5 @@
         };
       };
     };
-    coq-thirdparty = {
-      enable = true;
-      sources = [];
-    };
   };
 }

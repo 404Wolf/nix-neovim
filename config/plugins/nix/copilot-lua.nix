@@ -1,6 +1,7 @@
 {
   plugins.copilot-lua = {
     enable = true;
+    autoLoad = true;
     settings = {
       panel = {
         enabled = true;
@@ -21,7 +22,7 @@
         enabled = true;
         auto_trigger = true;
         hide_during_completion = true;
-        debounce = 75;
+        debounce = 40;
         keymap = {
           accept = "<M-l>";
           accept_word = false;
