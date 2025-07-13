@@ -137,8 +137,6 @@ local servers = {
 		end,
 		single_file_support = false,
 	},
-
-	rust_analyzer = {},
 }
 
 for server, config in pairs(servers) do
