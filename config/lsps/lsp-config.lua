@@ -114,7 +114,7 @@ local servers = {
 			if vim.uv.fs_stat(vim.uv.cwd() .. "/deno.json") then
 				return vim.uv.cwd()
 			else
-				return lspconfig.util.root_pattern("deno.json", "deno.jsonc")(vim.uv.cwd())
+				return false
 			end
 		end,
 		init_options = {
@@ -132,7 +132,7 @@ local servers = {
 			if vim.uv.fs_stat(vim.uv.cwd() .. "/package.json") then
 				return vim.uv.cwd()
 			else
-				return lspconfig.util.root_pattern("package.json", "tsconfig.json")(vim.uv.cwd())
+				return false
 			end
 		end,
 		single_file_support = false,
