@@ -18,15 +18,15 @@
     ++ [
       {
         key = "<A-t>";
-        action = "<cr>tabnew<cr>";
+        action = "<cmd>tabnew<cr>";
       }
       {
         key = "<A-c>";
-        action = "<cr>tabclose<cr>";
+        action = "<cmd>tabclose<cr>";
       }
       {
         key = "<C-q>";
-        action = "<cr>q<cr>";
+        action = "<cmd>q<cr>";
       }
     ];
 }

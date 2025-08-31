@@ -3,6 +3,7 @@
     ./telescope.nix
     ./gitsigns.nix
     ./treesitter.nix
+    ./codecompanion.nix
     ./cmp.nix
     ./lualine.nix
   ];

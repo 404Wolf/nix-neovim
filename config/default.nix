@@ -3,7 +3,7 @@
   imports = [
     ./lsp.nix
     ./keymaps.nix
-    ./plugins/default.nix
+    ./plugins
   ];
 
   colorscheme = "onedark_dark";
