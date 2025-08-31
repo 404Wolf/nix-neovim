@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   plugins.treesitter = {
     enable = true;
     nixvimInjections = true;
@@ -25,6 +26,10 @@
   plugins.treesitter-context = {
     enable = true;
   };
-  plugins.treesitter-refactor = {enable = true;};
-  plugins.treesitter-textobjects = {enable = true;};
+  plugins.treesitter-refactor = {
+    enable = true;
+  };
+  plugins.treesitter-textobjects = {
+    enable = true;
+  };
 }

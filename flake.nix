@@ -3,90 +3,51 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-    };
-    nix-bundle = {
-      url = "github:ralismark/nix-appimage";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    flake-utils.url = "github:numtide/flake-utils";
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvim-lspimport = {
-      url = "github:stevanmilic/nvim-lspimport";
-      flake = false;
-    };
-    copilot-status = {
-      url = "github:jonahgoldwastaken/copilot-status.nvim";
-      flake = false;
-    };
-    telescope-git-file-history = {
-      url = "github:isak102/telescope-git-file-history.nvim";
-      flake = false;
-    };
   };
-  outputs = {
-    self,
-    nixpkgs,
-    nixvim,
-    flake-utils,
-    ...
-  } @ inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixvim,
+      flake-utils,
+      ...
+    }@inputs:
     flake-utils.lib.eachDefaultSystem (
-      system: let
+      system:
+      let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = import ./overlays.nix {
-            repos = {
-              inherit
-                (inputs)
-                nvim-lspimport
-                copilot-status
-                telescope-git-file-history
-                ;
-            };
-          };
+          overlays = import ./overlays.nix;
         };
 
-        lspPackages = import ./config/lsps/packages.nix {inherit pkgs;};
         nixvim' = nixvim.legacyPackages.${system};
         nvim' = nixvim'.makeNixvimWithModule {
           inherit pkgs;
           extraSpecialArgs = inputs;
           module = ./config;
         };
-      in {
-        devShells = {
-          default = pkgs.mkShell {
-            packages = with pkgs; [
-              (python3.withPackages (pyPkgs: with pyPkgs; [pytest]))
-              lua-language-server
-              luarocks-nix
-              stylua
-            ];
-          };
-        };
+      in
+      {
         packages = rec {
           default = nvim;
-          nvim = pkgs.symlinkJoin {
-            name = "nvim";
-            paths = [nvim'];
-            buildInputs = [pkgs.makeWrapper];
-            postBuild = ''
-              wrapProgram $out/bin/nvim \
-                --set LS_COLORS "${pkgs.lib.escapeShellArg (builtins.readFile ./ls_colors)}" \
-                --suffix PATH : "${pkgs.lib.makeBinPath lspPackages}" \
-                --run 'export ANTHROPIC_API_KEY=$(cat /run/secrets/api-keys/anthropic)' \
-                --run 'export OPENAI_API_KEY=$(cat /run/secrets/api-keys/anthropic)' \
-
-            '';
-          };
-          nvim-appimage = inputs.nix-bundle.lib.${system}.mkAppImage {
-            program = "${nvim}/bin/nvim";
-          };
+          nvim = nvim';
         };
+        formatter =
+          let
+            treefmtconfig = inputs.treefmt-nix.lib.evalModule pkgs {
+              projectRootFile = "flake.nix";
+              programs.nixfmt.enable = true;
+              programs.shellcheck.enable = true;
+              settings.formatter.shellcheck.excludes = [ ".envrc" ];
+            };
+          in
+          treefmtconfig.config.build.wrapper;
       }
     );
 }

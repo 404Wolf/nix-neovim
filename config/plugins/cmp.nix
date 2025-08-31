@@ -1,5 +1,5 @@
 {
-  plugins.dressing = {
+  plugins.cmp = {
     enable = true;
   };
 }
