@@ -45,6 +45,7 @@
     foldenable = false;
     exrc = true;
     cmdheight = 0;
+    winborder = "rounded";
   };
 
   globals = {

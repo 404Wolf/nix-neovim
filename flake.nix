@@ -2,7 +2,7 @@
   description = "Wolf's Neovim Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     flake-utils.url = "github:numtide/flake-utils";
     nixvim = {
@@ -24,6 +24,9 @@
         pkgs = import nixpkgs {
           inherit system;
           overlays = import ./overlays.nix;
+          config = {
+            allowUnfree = true;
+          };
         };
 
         nixvim' = nixvim.legacyPackages.${system};

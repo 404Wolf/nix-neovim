@@ -11,11 +11,10 @@
   plugins = {
     web-devicons.enable = true;
     virt-column.enable = true;
-    yazi = {
-      enable = true;
-    };
+    yazi.enable = true;
     comment.enable = true;
-    copilot-lua.enable = true;
+    vim-matchup.enable = true;
+    copilot-vim.enable = true;
   };
 
   keymaps = [
