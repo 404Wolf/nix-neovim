@@ -16,26 +16,7 @@
       texlab.enable = true;
       tinymist.enable = true;
       tailwindcss.enable = true;
-      vtls = {
-        enable = true;
-        settings = {
-          rootDir =
-            #lua
-            ''
-              require('lspconfig.util').root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git')
-            '';
-        };
-      };
-      denols = {
-        enable = true;
-        settings = {
-          rootDir =
-            #lua
-            ''
-              require('lspconfig.util').root_pattern('deno.json', 'deno.jsonc')
-            '';
-        };
-      };
+      vtls.enable = true;
     };
 
     luaConfig.content = ''
