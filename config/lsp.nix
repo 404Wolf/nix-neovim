@@ -13,8 +13,10 @@
       marksman.enable = true;
       postgres_lsp.enable = true;
       ruby_lsp.enable = true;
+      texlab.enable = true;
       tinymist.enable = true;
       tailwindcss.enable = true;
+      typos_lsp.enable = true;
       vtls = {
         enable = true;
         settings = {
