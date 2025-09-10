@@ -16,18 +16,19 @@
       texlab.enable = true;
       tinymist.enable = true;
       tailwindcss.enable = true;
-      vtls.enable = true;
+      vtsls.enable = true;
     };
 
-    luaConfig.content = ''
-      vim.diagnostic.config({
-        virtual_text = true,  -- This is the key setting for inline diagnostics
-        signs = true,
-        underline = true,
-        update_in_insert = false,
-        severity_sort = true,
-      })
-    '';
+    luaConfig.content = # lua
+      ''
+        vim.diagnostic.config({
+          virtual_text = true,
+          signs = true,
+          underline = true,
+          update_in_insert = false,
+          severity_sort = true,
+        })
+      '';
   };
 
   plugins.lspconfig.enable = true;
