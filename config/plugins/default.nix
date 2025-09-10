@@ -7,6 +7,7 @@
     ./cmp.nix
     ./nvim-tree.nix
     ./lualine.nix
+    ./barbar.nix
   ];
 
   plugins = {
