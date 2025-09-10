@@ -64,12 +64,15 @@
       mode = "n";
     }
 
+  ]
+  ++
     # go between tab 1-9
     (lib.lists.map (i: {
       key = "t" + toString i;
       action = ":tabnext " + toString i + "<CR>";
       mode = "n";
     }) (lib.lists.range 1 9))
+  ++ [
 
     # close all buffers and exit (ctrl+q)
     {
