@@ -17,6 +17,7 @@
       tinymist.enable = true;
       tailwindcss.enable = true;
       vtsls.enable = true;
+      astro.enable = true;
     };
 
     luaConfig.content = # lua
