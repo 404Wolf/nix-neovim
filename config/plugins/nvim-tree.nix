@@ -9,9 +9,6 @@
         preserve_window_proportions = true;
       };
 
-      # default to yes for confirmations
-      ui.default_yes = true;
-
       # follow the current file
       update_focused_file = {
         enable = true;
