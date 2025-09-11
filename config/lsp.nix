@@ -39,5 +39,25 @@
       key = "<leader>pp";
       action = "<cmd>lua vim.lsp.buf.format()<cr>";
     }
+    {
+      key = "gd";
+      action = "<cmd>lua vim.lsp.buf.definition()<cr>";
+    }
+    {
+      key = "gf";
+      action = "<cmd>lua vim.lsp.buf.references()<cr>";
+    }
+    {
+      key = "gt";
+      action = "<cmd>lua vim.lsp.buf.type_definition()<cr>";
+    }
+    {
+      key = "gfci";
+      action = "<cmd>lua vim.lsp.buf.incoming_calls()<cr>";
+    }
+    {
+      key = "goci";
+      action = "<cmd>lua vim.lsp.buf.outgoing_calls()<cr>";
+    }
   ];
 }
