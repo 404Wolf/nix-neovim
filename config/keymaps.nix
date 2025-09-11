@@ -40,7 +40,7 @@
     # close all buffers and exit (ctrl+q)
     {
       key = "<C-q>";
-      action = ":bufdo bd<CR>";
+      action = "<CMD>qa<CR>";
       mode = "n";
     }
   ];

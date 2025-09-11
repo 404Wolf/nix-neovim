@@ -6,6 +6,22 @@
       view = {
         width = 30;
         side = "right";
+        preserve_window_proportions = true;
+      };
+
+      # default to yes for confirmations
+      ui.default_yes = true;
+
+      # follow the current file
+      update_focused_file = {
+        enable = true;
+        update_root = false;
+      };
+
+      # show LSP diagnostics
+      diagnostics = {
+        enable = true;
+        show_on_dirs = true;
       };
 
       renderer = {
