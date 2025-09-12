@@ -18,6 +18,7 @@
       tailwindcss.enable = true;
       vtsls.enable = true;
       astro.enable = true;
+      jdtls.enable = true;
     };
 
     luaConfig.content = # lua
