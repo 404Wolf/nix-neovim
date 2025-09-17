@@ -19,6 +19,7 @@
       vtsls.enable = true;
       astro.enable = true;
       jdtls.enable = true;
+      rust_analyzer.enable = true;
     };
 
     luaConfig.content = # lua
