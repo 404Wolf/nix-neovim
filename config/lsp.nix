@@ -46,6 +46,10 @@
       action = "<cmd>lua vim.lsp.buf.definition()<cr>";
     }
     {
+      key = "gld";
+      action = "<cmd>lua vim.diagnostic.open_float()<cr>";
+    }
+    {
       key = "gf";
       action = "<cmd>lua vim.lsp.buf.references()<cr>";
     }
