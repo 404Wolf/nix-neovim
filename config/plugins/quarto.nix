@@ -1,5 +1,4 @@
 {
-  plugins.quarto = {
-    enable = true;
-  };
+  plugins.otter.enable =true;
+  plugins.quarto.enable = true;
 }
