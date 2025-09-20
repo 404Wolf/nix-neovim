@@ -8,6 +8,7 @@
     ./nvim-tree.nix
     ./lualine.nix
     ./barbar.nix
+    ./quarto.nix
   ];
 
   plugins = {

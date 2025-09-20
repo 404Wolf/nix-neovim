@@ -1,5 +1,5 @@
 {
-  plugins.quarrto = {
+  plugins.quarto = {
     enable = true;
   };
 }
