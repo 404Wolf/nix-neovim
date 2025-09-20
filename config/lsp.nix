@@ -20,6 +20,7 @@
       astro.enable = true;
       jdtls.enable = true;
       rust_analyzer.enable = true;
+      lua_ls.enable = true;
     };
 
     luaConfig.content = # lua

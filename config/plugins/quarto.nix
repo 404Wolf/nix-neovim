@@ -1,0 +1,5 @@
+{
+  plugins.quarrto = {
+    enable = true;
+  };
+}
