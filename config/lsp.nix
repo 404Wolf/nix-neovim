@@ -16,11 +16,19 @@
       texlab.enable = true;
       tinymist.enable = true;
       tailwindcss.enable = true;
-      vtsls.enable = true;
       astro.enable = true;
       jdtls.enable = true;
       rust_analyzer.enable = true;
       lua_ls.enable = true;
+
+      vtsls.enable = true;
+      denols = {
+        enable = true;
+        settings = {
+          root_markers = [ "deno.json" "deno.jsonc" ];
+          single_file_support = false;
+        };
+      };
     };
 
     luaConfig.content = # lua
