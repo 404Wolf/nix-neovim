@@ -21,11 +21,27 @@
       rust_analyzer.enable = true;
       lua_ls.enable = true;
 
-      vtsls.enable = true;
+      vtsls = {
+        enable = true;
+        settings = {
+          filetypes = [
+            # be explicit so that it does not target astro
+            "typescript"
+            "typescriptreact"
+            "javascript"
+            "javascriptreact"
+            "vue"
+          ];
+        };
+      };
+
       denols = {
         enable = true;
         settings = {
-          root_markers = [ "deno.json" "deno.jsonc" ];
+          root_markers = [
+            "deno.json"
+            "deno.jsonc"
+          ];
           single_file_support = false;
         };
       };
