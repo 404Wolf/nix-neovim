@@ -21,18 +21,13 @@
       rust_analyzer.enable = true;
       lua_ls.enable = true;
 
-      vtsls = {
+      ts_ls = {
         enable = true;
-        settings = {
-          filetypes = [
-            # be explicit so that it does not target astro
-            "typescript"
-            "typescriptreact"
-            "javascript"
-            "javascriptreact"
-            "vue"
-          ];
-        };
+        root_markers = [
+          "package.json"
+          "tsconfig.json"
+          "jsconfig.json"
+        ];
       };
 
       denols = {
