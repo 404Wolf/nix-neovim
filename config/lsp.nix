@@ -23,11 +23,14 @@
 
       ts_ls = {
         enable = true;
-        root_markers = [
-          "package.json"
-          "tsconfig.json"
-          "jsconfig.json"
-        ];
+        settings = {
+          root_markers = [
+            "package.json"
+            "tsconfig.json"
+            "jsconfig.json"
+          ];
+          single_file_support = false;
+        };
       };
 
       denols = {
@@ -37,6 +40,18 @@
             "deno.json"
             "deno.jsonc"
           ];
+          root_dir = {
+            __raw = # lua
+              ''
+                function(bufnr, on_dir)
+                  local util = require('lspconfig.util')
+                  local deno_root = util.root_pattern('deno.json', 'deno.jsonc')(filepath)
+                  if deno_root then
+                    on_dir(deno_root)
+                  end
+                end
+              '';
+          };
           single_file_support = false;
         };
       };

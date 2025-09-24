@@ -18,13 +18,6 @@
   ];
 
   luaLoader.enable = true;
-  performance.byteCompileLua = {
-    enable = true;
-    configs = true;
-    luaLib = true;
-    nvimRuntime = true;
-    plugins = true;
-  };
 
   extraPlugins = with pkgs.vimPlugins; [
     onedarkpro-nvim
