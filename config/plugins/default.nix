@@ -7,7 +7,9 @@
     ./cmp.nix
     ./nvim-tree.nix
     ./barbar.nix
-    ./quarto.nix
+    ./otter.nix
+    ./diagram.nix
+    ./copilot-lua.nix
   ];
 
   plugins = {
@@ -15,6 +17,6 @@
     virt-column.enable = true;
     comment.enable = true;
     vim-matchup.enable = true;
-    copilot-vim.enable = true;
+    quarto.enable = true;
   };
 }

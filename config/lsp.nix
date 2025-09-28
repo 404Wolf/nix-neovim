@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   lsp = {
     inlayHints.enable = true;
@@ -16,23 +17,27 @@
       texlab.enable = true;
       tinymist.enable = true;
       tailwindcss.enable = true;
-      astro.enable = true;
+      astro = {
+        enable = true;
+        settings = {
+          init_options = {
+            typescript = {
+              tsdk = "${pkgs.typescript}/lib/node_modules/typescript/lib";
+            };
+          };
+        };
+      };
+      vue_ls.enable = true;
       jdtls.enable = true;
       rust_analyzer.enable = true;
       lua_ls.enable = true;
-
       ts_ls = {
         enable = true;
         settings = {
-          root_markers = [
-            "package.json"
-            "tsconfig.json"
-            "jsconfig.json"
-          ];
           single_file_support = false;
+          filetypes = [ ];
         };
       };
-
       denols = {
         enable = true;
         settings = {
