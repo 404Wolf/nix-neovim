@@ -5,6 +5,6 @@
   };
 
   extraPackages = with pkgs; [
-    mmdc
+    mermaid-cli
   ];
 }
