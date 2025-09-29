@@ -17,6 +17,7 @@
       texlab.enable = true;
       tinymist.enable = true;
       tailwindcss.enable = true;
+      yamlls.enable = true;
       astro = {
         enable = true;
         settings = {
