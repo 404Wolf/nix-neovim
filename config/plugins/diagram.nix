@@ -14,10 +14,6 @@
         clear_buffer = [ "BufLeave" ];
       };
 
-      integrations = [
-        "require('diagram.integrations.markdown')"
-      ];
-
       renderer_options = {
         mermaid = {
           theme = "forest";
@@ -25,25 +21,25 @@
         };
       };
 
-      keys = [
+      integrations = [
         {
-          key = "K";
-          fn = "function() require('diagram').show_diagram_hover() end";
-          mode = "n";
-          ft = [
-            "markdown"
-            "quarto"
-          ];
-          desc = "Show diagram in new tab";
+          __raw = # lua
+            ''
+              (function()
+                local integration = require('diagram.integrations.markdown')
+                integration.filetypes = { "markdown", "quarto" }
+                return integration
+              end)()
+            '';
         }
       ];
     };
   };
 
+  extraConfigLuaPost = # lua
+    '''';
+
   extraPackages = with pkgs; [
     mermaid-cli
-    plantuml
-    gnuplot
-    d2
   ];
 }
