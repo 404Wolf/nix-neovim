@@ -9,7 +9,6 @@
     ./barbar.nix
     ./otter.nix
     ./diagram.nix
-    ./copilot-lua.nix
   ];
 
   plugins = {
