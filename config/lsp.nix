@@ -31,7 +31,16 @@
       vue_ls.enable = true;
       jdtls.enable = true;
       rust_analyzer.enable = true;
-      lua_ls.enable = true;
+      lua_ls = {
+        enable = true;
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = [ "vim" ];
+            };
+          };
+        };
+      };
       ts_ls = {
         enable = true;
         settings = {
@@ -81,6 +90,10 @@
     {
       key = "<leader>pp";
       action = "<cmd>lua vim.lsp.buf.format()<cr>";
+    }
+    {
+      key = "cd";
+      action = "<cmd>lua vim.lsp.buf.rename()<cr>";
     }
     {
       key = "gd";

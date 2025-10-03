@@ -11,6 +11,17 @@
           sha256 = "sha256-wQJqKBBcJl9JAvyN+jxTbLUdqnd4j1wzZaxmmbontok=";
         };
       };
+      sidekick = prev.vimUtils.buildVimPlugin {
+        name = "sidekick.nvim";
+        version = "1.2.0";
+        src = prev.fetchFromGitHub {
+          owner = "folke";
+          repo = "sidekick.nvim";
+          rev = "v1.2.0";
+          sha256 = "sha256-so/28fFNL1xZv/SFoAbdRKXx11NvDQ2Nxa5TD8Tmtjs=";
+        };
+        doCheck = false;
+      };
     };
   })
 ]

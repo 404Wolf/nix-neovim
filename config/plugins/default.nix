@@ -8,7 +8,8 @@
     ./nvim-tree.nix
     ./barbar.nix
     ./otter.nix
-    ./diagram.nix
+    ./copilot.nix
+    ./fidget.nix
   ];
 
   plugins = {
