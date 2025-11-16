@@ -15,15 +15,10 @@
     gawk
     nix
     yazi
+    mdx-language-server
   ];
 
   luaLoader.enable = true;
-
-  extraPlugins = with pkgs.vimPlugins; [
-    onedarkpro-nvim
-    telescope-git-file-history
-    fugitive
-  ];
 
   opts = {
     shiftwidth = 2;

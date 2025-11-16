@@ -36,6 +36,9 @@
       "<leader>fhh" = {
         action = "git_file_history";
       };
+      "<leader>foo" = {
+        action = "lsp_document_symbols";
+      };
     };
   };
 }

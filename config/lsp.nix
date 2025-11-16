@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   lsp = {
-    inlayHints.enable = true;
+    inlayHints.enable = false;
 
     servers = {
       nil_ls.enable = true;
@@ -20,9 +20,20 @@
       yamlls.enable = true;
       astro = {
         enable = true;
-        settings = {
+        config = {
           init_options = {
             typescript = {
+              tsdk = "${pkgs.typescript}/lib/node_modules/typescript/lib";
+            };
+          };
+        };
+      };
+      mdx_analyzer = {
+        enable = true;
+        config = {
+          init_options = {
+            typescript = {
+              enabled = true;
               tsdk = "${pkgs.typescript}/lib/node_modules/typescript/lib";
             };
           };
@@ -33,7 +44,7 @@
       rust_analyzer.enable = true;
       lua_ls = {
         enable = true;
-        settings = {
+        config = {
           Lua = {
             diagnostics = {
               globals = [ "vim" ];
@@ -43,14 +54,14 @@
       };
       ts_ls = {
         enable = true;
-        settings = {
+        config = {
           single_file_support = false;
           filetypes = [ ];
         };
       };
       denols = {
         enable = true;
-        settings = {
+        config = {
           root_markers = [
             "deno.json"
             "deno.jsonc"
@@ -90,9 +101,10 @@
     {
       key = "<leader>pp";
       action = "<cmd>lua vim.lsp.buf.format()<cr>";
+      mode = "n";
     }
     {
-      key = "cd";
+      key = "grn";
       action = "<cmd>lua vim.lsp.buf.rename()<cr>";
     }
     {
