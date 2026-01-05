@@ -39,6 +39,12 @@
       "<leader>foo" = {
         action = "lsp_document_symbols";
       };
+      "<C-t>" = {
+        action = "lsp_workspace_symbols";
+      };
+      "<C-S-o>" = {
+        action = "lsp_document_symbols";
+      };
     };
   };
 }
